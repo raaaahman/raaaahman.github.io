@@ -1,0 +1,15 @@
+build/
+
+.env
+.env.*
+
+# npm
+node_modules/
+*-debug.log*
+
+# VS Code
+.vscode/
+
+# Next
+/.next/
+/out/
