@@ -13,10 +13,10 @@ export default function HomePage() {
 
       <img alt="Sylvain Schellenberger" src="/images/profile.jpg"/>
 
-      <secton>
+      <section>
         <h2>Some projects I did</h2>
         <article><h3><Link href="/projects/fairie">F.A.I.R.I.E.</Link></h3></article>
-      </secton>
+      </section>
     </main>
   </>)
 } 
