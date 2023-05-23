@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import Script from "next/script";
+import Layout from "../../components/Layout";
 
 export default function FAIRIEProject() {
-  return (<>
+  return (<Layout>
     <Head>
       <title>F.A.I.R.I.E. | Alternate Reality Game Companion Application</title>
       <meta name="description" content="F.A.I.R.I.E. is an interactive fiction that acts as a companion to The Index web serie, both being part of a broader alternate reality game."/>
@@ -26,10 +27,10 @@ export default function FAIRIEProject() {
     <Script
       src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"
       strategy="lazyOnload"
-      onLoad={() => {
-        console.log('loaded')
-      }}
     />
-    <script src="/scripts/digital-rain.js" type="text/javascript"></script>
-  </>)
+    <Script 
+      strategy="afterInteractive" 
+      src="/scripts/digital-rain.js" 
+      />
+  </Layout>)
 }
