@@ -4,7 +4,7 @@ import Script from "next/script";
 import Layout from "../../components/Layout";
 
 export default function FAIRIEProject() {
-  return (<Layout>
+  return (<Layout home={false}>
     <Head>
       <title>F.A.I.R.I.E. | Alternate Reality Game Companion Application</title>
       <meta name="description" content="F.A.I.R.I.E. is an interactive fiction that acts as a companion to The Index web serie, both being part of a broader alternate reality game."/>
