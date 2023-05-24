@@ -21,7 +21,7 @@ export default function FAIRIEProject() {
           color: 'darkgreen'
     }}></pre>
 
-    <h1>F.A.I.R.I.E.</h1>
+    <h1 className="text-4xl font-extrabold my-4">F.A.I.R.I.E.</h1>
     <Link href="/">Back to home</Link>
 
     <Script
