@@ -3,8 +3,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import Layout from '../components/Layout'
-import styles from '../components/layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 
 export default function HomePage() {
   return (<Layout home={true}>
@@ -24,22 +22,24 @@ export default function HomePage() {
         content="Sylvain Schellenberger, Front-end developer"
       />
     </Head>
-    <header className={styles.header}>
-      <h1 className={utilStyles.heading2X1}>Looking for your Next developer?</h1>
+    <header className="flex flex-col mx-auto mt-12 mb-24">
+      <h1 className="text-4xl font-extrabold my-4">Looking for your Next developer?</h1>
       <p>Look no further!</p>
       <Image
         priority
         alt="Sylvain Schellenberger"
         src="/images/profile.jpg"
-        className={utilStyles.borderCircle}
+        className="rounded-full"
         height={144}
         width={144}
       />
     </header>
     <main>
       <section>
-        <h2 className={utilStyles.headingLg}>Projects</h2>
-        <article><h3 className={utilStyles.headingMd}><Link href="/projects/fairie" className={utilStyles.colorInherit}>F.A.I.R.I.E.</Link></h3></article>
+        <h2 className="text-2xl font-extrabold my-4">Projects</h2>
+        <article>
+          <h3 className="text-lg my-4"><Link href="/projects/fairie" className="text-inherit">F.A.I.R.I.E.</Link></h3>
+        </article>
       </section>
     </main>
   </Layout>)
