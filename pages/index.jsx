@@ -3,9 +3,20 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import Layout from '../components/Layout'
+import { getSortedProjectsData } from '../utils/projects'
 
-export default function HomePage() {
-  return (<Layout home={true}>
+export async function getStaticProps() {
+  const allProjectsData = getSortedProjectsData()
+
+  return {
+    props: {
+      allProjectsData
+    }
+  }
+}
+
+export default function HomePage({ allProjectsData }) {
+  return (<Layout home>
     <Head>
       <title>React / Next + Firebase Developer | Sylvain Schellenberger</title>
       <link rel="icon" href="/favicon.ico"/>
@@ -37,9 +48,13 @@ export default function HomePage() {
     <main>
       <section>
         <h2 className="text-2xl font-extrabold my-4">Projects</h2>
-        <article>
-          <h3 className="text-lg my-4"><Link href="/projects/fairie" className="text-inherit">F.A.I.R.I.E.</Link></h3>
-        </article>
+        {allProjectsData.map(({ id, date, title, description }) => (
+          <article key={id}>
+            <h3 className="text-lg font-bold my-4"><Link href={`/projects/${id}`} className="text-inherit">{title}</Link></h3>
+            <span className="text-sm italic">{date}</span>
+            <p>{description}</p>
+         </article>
+        ))}
       </section>
     </main>
   </Layout>)
