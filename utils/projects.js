@@ -29,3 +29,25 @@ export function getSortedProjectsData() {
     }
   })
 }
+
+export function getAllProjectsIds() {
+  const fileNames = fs.readdirSync(projectsDirectory)
+
+  return fileNames.map(fileName => ({
+    params: {
+      id: fileName.replace(/\.md$/, '')
+    }
+  }))
+}
+
+export function getProjectData(id) {
+  const fullPath = path.join(projectsDirectory, `${id}.md`)
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
+
+  const matterResult = matter(fileContents)
+
+  return {
+    id,
+    ...matterResult.data
+  }
+}
