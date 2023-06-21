@@ -11,8 +11,8 @@ export async function getStaticPaths() {
   }
 }
 
-export function getStaticProps({ params }) {
-  const projectData = getProjectData(params.id)
+export async function getStaticProps({ params }) {
+  const projectData = await getProjectData(params.id)
 
   return {
     props: {
@@ -28,6 +28,6 @@ export default function Project({ projectData }) {
       <meta name="description" content={projectData.description} />
     </Head>
     <h1>{projectData.title}</h1>
-    
+    <div dangerouslySetInnerHTML={{ __html: projectData.contentHtml }} />
   </Layout>)
 }
