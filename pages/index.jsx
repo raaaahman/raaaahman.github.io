@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import Layout from '../components/Layout'
 import { getSortedProjectsData } from '../utils/projects'
+import Date from '../components/Date'
 
 export async function getStaticProps() {
   const allProjectsData = getSortedProjectsData()
@@ -51,7 +52,7 @@ export default function HomePage({ allProjectsData }) {
         {allProjectsData.map(({ id, date, title, description }) => (
           <article key={id}>
             <h3 className="text-lg font-bold my-4"><Link href={`/projects/${id}`} className="text-inherit">{title}</Link></h3>
-            <span className="text-sm italic">{date}</span>
+            <Date dateString={date} />
             <p>{description}</p>
          </article>
         ))}
