@@ -2,29 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Sergoe UI, Roboto, Oxygen, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  line-height: 1.6;
-  font-size: 18px;
-}
+@layer components {
+  #__next {
+    @apply h-full bg-grey-dark text-white-weak font-sans;
+  }
 
-* {
-  box-sizing: border-box;
-}
+  html, body {
+    @apply h-full;
+  }
 
-a {
-  color: #433fb2;
-  text-decoration: none;
-}
+  h1, h2, h3, h4, h5, h6, strong, a {
+    @apply text-white-strong;
+  }
 
-a:hover {
-  text-decoration: underline;
-}
-
-img {
-  max-width: 100%;
-  display: block;
 }

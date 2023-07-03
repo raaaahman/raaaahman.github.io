@@ -34,7 +34,7 @@ export default function HomePage({ allProjectsData }) {
         content="Sylvain Schellenberger, Front-end developer"
       />
     </Head>
-    <header className="flex flex-col mx-auto mt-12 mb-24">
+    <section className="flex flex-col mx-auto mb-24">
       <h1 className="text-4xl font-extrabold my-4">Looking for your Next developer?</h1>
       <p>Look no further!</p>
       <Image
@@ -45,18 +45,16 @@ export default function HomePage({ allProjectsData }) {
         height={144}
         width={144}
       />
-    </header>
-    <main>
-      <section>
-        <h2 className="text-2xl font-extrabold my-4">Projects</h2>
-        {allProjectsData.map(({ id, date, title, description }) => (
-          <article key={id}>
-            <h3 className="text-lg font-bold my-4"><Link href={`/projects/${id}`} className="text-inherit">{title}</Link></h3>
-            <Date dateString={date} />
-            <p>{description}</p>
-         </article>
-        ))}
-      </section>
-    </main>
+    </section>
+    <section>
+      <h2 className="text-2xl font-extrabold my-4">Projects</h2>
+      {allProjectsData.map(({ id, date, title, description }) => (
+        <article key={id}>
+          <h3 className="text-lg font-bold my-4"><Link href={`/projects/${id}`} className="text-inherit">{title}</Link></h3>
+          <Date dateString={date} />
+          <p>{description}</p>
+        </article>
+      ))}
+    </section>
   </Layout>)
 } 
