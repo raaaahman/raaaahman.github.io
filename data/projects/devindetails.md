@@ -1,7 +1,9 @@
 ---
-title: 'Dev In Details'
-description: "A coder's blog about the playful implementation of serious front-end development concepts."
-date: 'On Going'
+cover: phaser-360_003.png
+title: Dev In Details
+description: A coder's blog about the playful implementation of serious front-end development concepts.
+date: On Going
+category: writing
 ---
 
 [Dev In Details](https://devindetails.com) is my personal blog where I share my thoughts and experiments about **front-end development**. Mostly through the making of _browser games_ using the Phaser framework.

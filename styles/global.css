@@ -4,15 +4,15 @@
 
 @layer components {
   #__next {
-    @apply h-full bg-grey-dark text-white-weak font-sans;
-  }
-
-  html, body {
-    @apply h-full;
+    @apply bg-grey-dark text-white-weak font-sans;
   }
 
   h1, h2, h3, h4, h5, h6, strong, a {
     @apply text-white-strong;
   }
 
+}
+
+.radial-gradient-white-20 {
+  background: radial-gradient(rgb(255 255 255 / 20%), #15161A);
 }
