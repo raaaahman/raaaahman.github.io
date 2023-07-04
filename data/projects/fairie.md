@@ -1,7 +1,9 @@
 ---
-title: 'F.A.I.R.I.E.'
-description: 'F.A.I.R.I.E. is an interactive fiction that serves as a companion app for an alternate reality game set in the story-world of The Index.'
-date: 'TBA'
+cover: fairie_desktop_search-result.png
+title: F.A.I.R.I.E.
+description: F.A.I.R.I.E. is an interactive fiction that serves as a companion app for an alternate reality game set in the story-world of The Index.
+date: TBA
+category: code
 ---
 
 [The Index project](https://theindex.world/) is an entertainment franchise created by Rustin L. Odom, it is set in a mysterious world where the laws of reality can be bent, broken and exploited through hacking the mind of the masses.

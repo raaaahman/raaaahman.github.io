@@ -4,7 +4,8 @@ import Image from 'next/image'
 
 import Layout from '../components/Layout'
 import { getSortedProjectsData } from '../utils/projects'
-import Date from '../components/Date'
+import Card, { CardHeader, CardContent } from '../components/Card'
+import CategoryIcon from '../components/CategoryIcon'
 
 export async function getStaticProps() {
   const allProjectsData = getSortedProjectsData()
@@ -48,12 +49,25 @@ export default function HomePage({ allProjectsData }) {
     </section>
     <section>
       <h2 className="text-2xl font-extrabold my-4">Projects</h2>
-      {allProjectsData.map(({ id, date, title, description }) => (
-        <article key={id}>
-          <h3 className="text-lg font-bold my-4"><Link href={`/projects/${id}`} className="text-inherit">{title}</Link></h3>
-          <Date dateString={date} />
-          <p>{description}</p>
-        </article>
+      {allProjectsData.map(({ id, title, cover, category, description }) => (
+        <Link href={`/projects/${id}`} className="text-inherit">
+          <Card key={id}>
+            <CardHeader 
+              cover={cover}
+              description={title}
+            />
+            <CardContent>
+              <CategoryIcon 
+                category={category}
+                className="w-8 h-8 text-white-weak mr-4 self-center"
+              />
+              <div>
+                <h3 className="text-white-medium text-lg font-semibold">{title}</h3>
+                <p className="text-white-weak">{description}</p>
+              </div> 
+            </CardContent>
+          </Card>
+        </Link>
       ))}
     </section>
   </Layout>)
