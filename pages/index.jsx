@@ -49,26 +49,28 @@ export default function HomePage({ allProjectsData }) {
     </section>
     <section>
       <h2 className="text-2xl font-extrabold my-4">Projects</h2>
-      {allProjectsData.map(({ id, title, cover, category, description }) => (
-        <Link href={`/projects/${id}`} className="text-inherit">
-          <Card key={id}>
-            <CardHeader 
-              cover={cover}
-              description={title}
-            />
-            <CardContent>
-              <CategoryIcon 
-                category={category}
-                className="w-8 h-8 text-white-weak mr-4 self-center"
+      <div className="columns-xl gap-8">
+        {allProjectsData.map(({ id, title, cover, category, description }) => (
+          <Link href={`/projects/${id}`}>
+            <Card key={id} className="text-inherit mb-8">
+              <CardHeader 
+                cover={cover}
+                description={title}
               />
-              <div>
-                <h3 className="text-white-medium text-lg font-semibold">{title}</h3>
-                <p className="text-white-weak">{description}</p>
-              </div> 
-            </CardContent>
-          </Card>
-        </Link>
-      ))}
+              <CardContent>
+                <CategoryIcon 
+                  category={category}
+                  className="hidden lg:block w-8 h-8 text-white-weak mr-4 self-center"
+                />
+                <div>
+                  <h3 className="text-white-medium text-lg font-semibold">{title}</h3>
+                  <p className="text-white-weak">{description}</p>
+                </div> 
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </div>
     </section>
   </Layout>)
 } 
