@@ -1,0 +1,12 @@
+@keyframes clip {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: var(--clip-value);
+  }
+}
+
+.clip {
+  animation: clip 0.4s ease-in-out forwards;
+}
