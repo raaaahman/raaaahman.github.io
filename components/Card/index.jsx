@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function Card({ children, className, ...props }) {
   className += ' box-border rounded-3xl radial-gradient-white-20 p-2 shadow-[0_8px_16px_0_rgb(0,0,0,0.6)] border border-white-5'
   
@@ -7,11 +9,13 @@ export default function Card({ children, className, ...props }) {
 }
 
 export function CardHeader({ title, cover }) {
- return (<header
-  style={{ '--image-url': `url('images/${cover}')` }}
-  title={title}
-  className="w-full h-48 lg:h-64 rounded-3xl bg-[image:var(--image-url)] bg-cover bg-center"
- >
+ return (<header className="relative h-[16rem] lg:h-[24rem]">
+    <Image
+      alt={title}
+      src={'/images/' + cover}
+      fill
+      className="object-cover object-center rounded-3xl"
+    />
   </header>)
 }
 
