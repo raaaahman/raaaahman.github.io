@@ -11,6 +11,7 @@
   },
   "author": "raaaahman <sylvain@devindetails.com>",
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "date-fns": "^2.30.0",
     "gray-matter": "^4.0.3",
     "next": "^13.4.1",
