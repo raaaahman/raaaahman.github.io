@@ -11,6 +11,10 @@
     @apply text-white-strong;
   }
 
+  strong {
+    @apply font-normal;
+  }
+
 }
 
 .radial-gradient-white-20 {
