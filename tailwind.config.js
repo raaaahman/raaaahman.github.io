@@ -9,6 +9,7 @@ module.exports = {
       current: 'currentColor',
       black: {
         60: 'rgb(0 0 0 / 60%)',
+        10: 'rgb(0 0 0 / 10 %)',
         12: 'rgb(0 0 0 / 12%)',
         4: 'rgb(0 0 0 / 4%)',
       },
@@ -35,10 +36,14 @@ module.exports = {
         10: 'rgb(255 255 255 / 10%)',
         5: 'rgb(255 255 255 / 5%)',
       },
-     
     },
     fontFamily: {
       sans: [ 'Inter', 'sans-serif' ]
     },
+    extend: {
+      boxShadow: {
+        element: '0 8px 16px 0 rgba(0,0,0,0.6)'
+      }
+    }
   }
 }
