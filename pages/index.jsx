@@ -35,7 +35,7 @@ export default function HomePage({ allProjectsData }) {
         content="Sylvain Schellenberger, React Developer / Creative Coder"
       />
     </Head>
-    <section className="lg:flex-1 my-8 mx-12">
+    <section id="intro" className="lg:flex-1 lg:my-8 lg:px-12">
       <span className="text-lg">Sylvain Schellenberger</span>
       <h1 className="text-4xl font-extrabold leading-tight mt-2 mb-6">Freelance React Developer / Creative Coder</h1>
       <p className="text-justify">
@@ -60,13 +60,13 @@ export default function HomePage({ allProjectsData }) {
         ]}
       />
     </section>
-    <section className="lg:flex-none w-full">
+    <section id="projects" className="lg:flex-none w-full">
       <h2 className="text-2xl font-extrabold leading-snug my-6">Projects</h2>
       <div className="lg:flex lg:flex-wrap lg:items-stretch">
         {allProjectsData.map(({ id, title, cover, category, description }) => (
           <Link 
             href={`/projects/${id}`}
-            className="lg:block lg:flex-1 lg:basis-[40%] lg:[&:not(:first-child)]:ml-4 lg:[&:not(:last-child)]:mr-4 mb-8"
+            className="block xl:flex-1 xl:basis-[40%] xl:[&:not(:first-child)]:ml-4 xl:[&:not(:last-child)]:mr-4 mb-8"
             key={title}
           >
             <Card key={id} className="text-inherit h-full">
