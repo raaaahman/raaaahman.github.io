@@ -60,7 +60,7 @@ export default function HomePage({ allProjectsData }) {
         ]}
       />
     </section>
-    <section id="projects" className="lg:flex-none w-full">
+    <section id="projects" className="lg:flex-none w-full mb-8">
       <h2 className="text-2xl font-extrabold leading-snug my-6">Projects</h2>
       <div className="lg:flex lg:flex-wrap lg:items-stretch">
         {allProjectsData.map(({ id, title, cover, category, description }) => (
