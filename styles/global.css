@@ -15,6 +15,25 @@
     @apply font-normal;
   }
 
+  .top-left-section {
+    @apply lg:flex-1 lg:my-8 lg:px-12;
+  }
+
+  .top-right-section {
+    @apply lg:flex-1 mt-20 mb-8;
+  }
+
+  .page-title {
+    @apply text-4xl font-extrabold leading-tight mt-2 mb-6;
+  }
+
+  .top-right-section__title {
+    @apply lg:w-[20%] lg:px-4 lg:text-right text-2xl font-extrabold;
+  }
+
+  .section-title {
+    @apply text-2xl font-extrabold leading-snug my-6;
+  }
 }
 
 .radial-gradient-white-20 {
