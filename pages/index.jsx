@@ -18,7 +18,7 @@ export async function getStaticProps() {
 }
 
 export default function HomePage({ allProjectsData }) {
-  return (<Layout home className="lg:flex flex-wrap">
+  return (<Layout home className="lg:flex lg:flex-wrap">
     <Head>
       <title>React / Next + Firebase Developer | Sylvain Schellenberger</title>
       <link rel="icon" href="/favicon.ico"/>
@@ -35,17 +35,17 @@ export default function HomePage({ allProjectsData }) {
         content="Sylvain Schellenberger, React Developer / Creative Coder"
       />
     </Head>
-    <section id="intro" className="lg:flex-1 lg:my-8 lg:px-12">
+    <section id="intro" className="top-left-section">
       <span className="text-lg">Sylvain Schellenberger</span>
-      <h1 className="text-4xl font-extrabold leading-tight mt-2 mb-6">Freelance React Developer / Creative Coder</h1>
+      <h1 className="page-title">Freelance React Developer / Creative Coder</h1>
       <p className="text-justify">
-        Are you looking for a <strong>front-end developer</strong> with an itch for innovation and a flair for <strong>creative coding</strong>? Look no further!</p>
+        Are you looking for a <strong>front-end developer</strong> with an itch for innovation and a thirst for <strong>creative coding</strong>? Look no further!</p>
       <p className="text-justify">
-       From <strong>crafting visually striking websites</strong> to <strong>building interactive games</strong>, I thrive on pushing the boundaries of web design. With a solid foundation in front-end technologies such as <em>Javascript</em> and <em>React</em>, combined to an eagerness to learn graphical libraries like <em>Phaser</em> or <em>Three.js</em>, I can transform your ideas into <strong>captivating digital experiences</strong> that users won't soon forget.
+       From <strong>crafting visually striking websites</strong> to <strong>building interactive games</strong>, I thrive on pushing the boundaries of web development. With a solid foundation in front-end technologies such as <em>TypeScript</em> and <em>React</em>, combined to an eagerness to learn graphical libraries like <em>Phaser</em> or <em>Three.js</em>, I can transform your ideas into <strong>captivating digital experiences</strong> that users won't soon forget.
       </p>
     </section>
-    <section className="lg:flex-1 mt-20 mb-8">
-      <h2 className="lg:w-[20%] lg:px-4 lg:text-right text-2xl font-extrabold">Skills</h2>
+    <section className="top-right-section">
+      <h2 className="top-right-section__title">Skills</h2>
       <SkillList 
         skills={[
           { name: 'Three.js', value: 15 },
@@ -61,7 +61,7 @@ export default function HomePage({ allProjectsData }) {
       />
     </section>
     <section id="projects" className="lg:flex-none w-full mb-8">
-      <h2 className="text-2xl font-extrabold leading-snug my-6">Projects</h2>
+      <h2 className="section-title">Projects</h2>
       <div className="lg:flex lg:flex-wrap lg:items-stretch">
         {allProjectsData.map(({ id, title, cover, category, description }) => (
           <Link 
