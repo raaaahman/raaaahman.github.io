@@ -1,7 +1,7 @@
 'use client'
 import { useMemo, createContext, useContext, useReducer } from 'react'
 
-import { CAROUSEL_LOAD_ITEMS, CAROUSEL_SLIDE, CAROUSEL_TRANSITION_END } from './actions'
+import { CAROUSEL_LOAD_ITEMS, CAROUSEL_SLIDE, CAROUSEL_SLIDE_DIRECTION_PREV, CAROUSEL_TRANSITION_END } from './actions'
 
 export const CarouselContext = createContext({})
 
@@ -18,7 +18,7 @@ function carouselReducer(state, action) {
         desriedItemId: 0,
       }
     case CAROUSEL_SLIDE:
-      const direction = payload === 'prev' ? -1 : 1
+      const direction = payload === CAROUSEL_SLIDE_DIRECTION_PREV ? -1 : 1
 
       return {
         ...state,

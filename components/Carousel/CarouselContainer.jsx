@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import { useCarousel } from './CarouselContext'
-import { carouselLoadItems, carouselTransitionEnd } from './actions'
+import { CAROUSEL_SLIDE_DIRECTION_NEXT, carouselLoadItems, carouselSlide, carouselTransitionEnd } from './actions'
 
 export default function CarouselContainer({ children, items, autoRun, duration, ...props }) {
   const { state, dispatch } = useCarousel()
@@ -11,6 +11,18 @@ export default function CarouselContainer({ children, items, autoRun, duration, 
 
     dispatch(carouselLoadItems(itemsIds))
   }, [items])
+
+  useEffect(() => {
+    if (typeof autoRun === 'number' && state.activeItemId === state.activeItemId) {
+      const autoRunTimeout = setTimeout(() => {
+        dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_NEXT))
+      }, autoRun)
+
+      return () => {
+        clearTimeout(autoRunTimeout)
+      }
+    }
+  }, [autoRun, state.activeItemId, state.desiredItemId])
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -41,5 +53,6 @@ export default function CarouselContainer({ children, items, autoRun, duration, 
         </div>)
       })}
     </div>
+    {children}
   </div>)
 }

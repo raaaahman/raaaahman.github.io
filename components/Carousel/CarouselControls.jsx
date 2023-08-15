@@ -1,12 +1,12 @@
 'use client'
 import { useCarousel } from "./CarouselContext"
-import { carouselSlide } from "./actions"
+import { CAROUSEL_SLIDE_DIRECTION_NEXT, CAROUSEL_SLIDE_DIRECTION_PREV, carouselSlide } from "./actions"
 
 export function CarouselControlPrev({ ...props }) {
   const { dispatch } = useCarousel()
 
   const handleClick = () => {
-    dispatch(carouselSlide('prev'))
+    dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_PREV))
   }
 
   return (<button
@@ -23,7 +23,7 @@ export function CarouselControlNext({ ...props }) {
   const { dispatch } = useCarousel()
 
   const handleClick = () => {
-    dispatch(carouselSlide('next'))
+    dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_NEXT))
   }
 
   return (<button
