@@ -1,5 +1,7 @@
 export const CAROUSEL_LOAD_ITEMS = 'carousel-load-items'
 export const CAROUSEL_SLIDE = 'carousel-slide'
+export const CAROUSEL_SLIDE_DIRECTION_PREV = 'carousel-slide-prev'
+export const CAROUSEL_SLIDE_DIRECTION_NEXT = 'carousel-slide-next'
 export const CAROUSEL_TRANSITION_END = 'carousel-transition-end'
 
 export function carouselLoadItems(items, autoRun = false) {
