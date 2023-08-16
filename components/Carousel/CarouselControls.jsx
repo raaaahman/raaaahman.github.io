@@ -2,7 +2,7 @@
 import { useCarousel } from "./CarouselContext"
 import { CAROUSEL_SLIDE_DIRECTION_NEXT, CAROUSEL_SLIDE_DIRECTION_PREV, carouselSlide } from "./actions"
 
-export function CarouselControlPrev({ ...props }) {
+export function CarouselControlPrev({ className, size = '1.5rem', ...props }) {
   const { dispatch } = useCarousel()
 
   const handleClick = () => {
@@ -10,16 +10,19 @@ export function CarouselControlPrev({ ...props }) {
   }
 
   return (<button
-    className="absolute bottom-0 left-0 top-0 z-10 flex w-[15%] items-center justify-center border-0 bg-none text-center text-white opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none"
     type="button"
     onClick={handleClick}
+    className={'absolute bottom-0 left-0 top-0 z-20 ' + className}
     {...props}
   >
-    Previous
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style={{ width: size, height: size }}>
+      <title>Previous</title>
+      <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clipRule="evenodd" />
+    </svg>
   </button>)
 }
 
-export function CarouselControlNext({ ...props }) {
+export function CarouselControlNext({ className, size = '1.5rem', ...props }) {
   const { dispatch } = useCarousel()
 
   const handleClick = () => {
@@ -27,11 +30,14 @@ export function CarouselControlNext({ ...props }) {
   }
 
   return (<button
-    className="absolute bottom-0 right-0 top-0 z-10 flex w-[15%] items-center justify-center border-0 bg-none text-center text-white opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none"
     type="button"
     onClick={handleClick}
+    className={'absolute bottom-0 right-0 top-0 z-20 ' + className}
     {...props}
   >
-    Next
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style={{ width: size, height: size }}>
+      <title>Next</title>
+      <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z" clipRule="evenodd" />
+    </svg>
   </button>)
 }
