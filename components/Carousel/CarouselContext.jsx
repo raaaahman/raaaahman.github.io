@@ -18,11 +18,13 @@ function carouselReducer(state, action) {
         desriedItemId: 0,
       }
     case CAROUSEL_SLIDE:
-      const direction = payload === CAROUSEL_SLIDE_DIRECTION_PREV ? -1 : 1
+      const newDesiredItemId = payload === CAROUSEL_SLIDE_DIRECTION_PREV
+        ? (state.activeItemId || state.items.length) - 1
+        : (state.activeItemId + 1) % state.items.length
 
       return {
         ...state,
-        desiredItemId: (state.activeItemId + direction) % state.items.length,
+        desiredItemId: newDesiredItemId,
       }
     case CAROUSEL_TRANSITION_END:
       return {
