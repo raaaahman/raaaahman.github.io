@@ -1,7 +1,7 @@
 'use client'
 import { useMemo, createContext, useContext, useReducer } from 'react'
 
-import { CAROUSEL_LOAD_ITEMS, CAROUSEL_SLIDE, CAROUSEL_SLIDE_DIRECTION_PREV, CAROUSEL_TRANSITION_END } from './actions'
+import { CAROUSEL_JUMP_TO, CAROUSEL_LOAD_ITEMS, CAROUSEL_SLIDE, CAROUSEL_SLIDE_DIRECTION_PREV, CAROUSEL_TRANSITION_END } from './actions'
 
 export const CarouselContext = createContext({})
 
@@ -31,22 +31,34 @@ function carouselReducer(state, action) {
         ...state,
         activeItemId: state.desiredItemId
       }
+    case CAROUSEL_JUMP_TO:
+      return payload < state.items.length
+        ? {
+          ...state,
+          desiredItemId: payload
+        }
+        : state
     default:
       return state
   }
 }
 
 export function useCarousel() {
-  const { state, dispatch } = useContext(CarouselContext)
+  const carousel = useContext(CarouselContext)
 
-  if (!state || !dispatch) {
+  if (!carousel) {
     throw new Error('Carousel components cannot be rendered outide a Carousel context.')
   }
 
-  return { state, dispatch }
+  return carousel
 }
 
-export default function CarouselContextProvider({ children }) {
+export default function CarouselContextProvider({ duration, autoRun, children }) {
+  const config = {
+    duration,
+    autoRun
+  }
+
   const [ state, dispatch ] = useReducer(carouselReducer, {
     items: [],
     activeItemId: 0,
@@ -55,7 +67,7 @@ export default function CarouselContextProvider({ children }) {
   })
 
   const context = useMemo(
-    () => ({ state, dispatch }),
+    () => ({ config, state, dispatch }),
     [state]
   )
 
