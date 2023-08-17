@@ -32,7 +32,7 @@ function carouselReducer(state, action) {
         activeItemId: state.desiredItemId
       }
     case CAROUSEL_JUMP_TO:
-      return payload < state.items.length
+      return payload < state.items.length && payload >= 0
         ? {
           ...state,
           desiredItemId: payload

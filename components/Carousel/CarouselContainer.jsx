@@ -14,7 +14,7 @@ export default function CarouselContainer({ children, items, ...props }) {
   }, [items])
 
   useEffect(() => {
-    if (typeof autoRun === 'number' && state.activeItemId === state.activeItemId) {
+    if (typeof autoRun === 'number' && state.desiredItemId === state.activeItemId) {
       const autoRunTimeout = setTimeout(() => {
         dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_NEXT))
       }, autoRun)
