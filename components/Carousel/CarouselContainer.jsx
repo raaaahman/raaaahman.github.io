@@ -3,8 +3,9 @@ import { useEffect } from 'react'
 import { useCarousel } from './CarouselContext'
 import { CAROUSEL_SLIDE_DIRECTION_NEXT, carouselLoadItems, carouselSlide, carouselTransitionEnd } from './actions'
 
-export default function CarouselContainer({ children, items, autoRun, duration, ...props }) {
-  const { state, dispatch } = useCarousel()
+export default function CarouselContainer({ children, items, ...props }) {
+  const { config, state, dispatch } = useCarousel()
+  const { autoRun, duration } = config
 
   useEffect(() => {
     const itemsIds = items.map((item, index) => index)
