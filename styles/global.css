@@ -16,19 +16,19 @@
   }
 
   .top-left-section {
-    @apply lg:flex-1 lg:my-8 lg:px-12;
+    @apply md:flex-1 md:my-8 md:px-12 p-4;
   }
 
   .top-right-section {
-    @apply lg:flex-1 mt-20 mb-8;
+    @apply md:flex-1 md:mt-20 mb-8 p-4;
   }
 
   .page-title {
-    @apply text-4xl font-extrabold leading-tight mt-2 mb-6;
+    @apply text-center md:text-left text-4xl font-extrabold leading-tight mt-2 mb-6;
   }
 
   .top-right-section__title {
-    @apply lg:w-[20%] lg:px-4 lg:text-right text-2xl font-extrabold;
+    @apply md:w-[20%] md:px-4 md:text-left text-center text-2xl font-extrabold;
   }
 
   .section-title {
