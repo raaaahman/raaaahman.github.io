@@ -3,9 +3,9 @@ import { useRef, useState, useEffect } from 'react'
 
 export default function AnimateOnScroll({ 
   children,
-  root,
-  rootMargin,
-  threshold,
+  root = null,
+  rootMargin = '0%',
+  threshold = 1,
   idleClassName, 
   animateClassName,
   ...props 
@@ -14,23 +14,27 @@ export default function AnimateOnScroll({
   const [ isVisible, setIsVisible ] = useState(false)
 
   useEffect(() => {
-    if (elementRef.current) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries.find(entry => entry.intersectionRatio > threshold)) {
-            setIsVisible(true)
-          }
-        },
-        {
-          root,
-          rootMargin,
-          threshold
-        }
-      )
+    if (!elementRef.current || typeof IntersectionObserver !== 'function') return 
 
-      observer.observe(elementRef.current)
-  
-      return () => observer.disconnect()
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        if (threshold instanceof Array && entries.find(entry => entry.intersectionRatio > threshold[0]) ||
+        typeof threshold === 'number' && entries.find(entry => entry.intersectionRatio > threshold)) {
+          setIsVisible(true)
+        }
+      },
+      {
+        root,
+        rootMargin,
+        threshold
+      }
+    )
+
+    observer.observe(elementRef.current)
+
+    return () => {
+      setIsVisible(false)
+      observer.disconnect()
     }
   }, [elementRef.current])
    
