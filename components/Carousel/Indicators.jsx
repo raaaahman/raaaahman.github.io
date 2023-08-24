@@ -15,8 +15,8 @@ export default function Indicators({ indicatorClassName, activeClassName, ...pro
         return (<li key={index}>
           <button
             type="button"
-            ariaCurrent={index === state.activeItemId}
-            ariaLabel={'Slide ' + (index + 1)}
+            aria-current={index === state.activeItemId}
+            aria-label={'Slide ' + (index + 1)}
             className={index === state.desiredItemId ? activeClassName : indicatorClassName}
             style={{ transitionDuration: config.duration }}
             onClick={createHandler(index)}
