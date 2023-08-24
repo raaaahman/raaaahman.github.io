@@ -67,22 +67,25 @@ export default function CarouselContainer({ children, items, ...props }) {
     aria-roledescription="carousel"
     {...props}
   >
-    <div
+    <ol
       aria-atomic="false"
       aria-live={autoRun ? 'off' : 'polite'}
-      className="relative w-full h-full overflow-hidden after:clear-both after:block after:content-['']"
+      className="list-none relative w-full h-full overflow-hidden after:clear-both after:block after:content-['']"
     >
       {items.map((item, index, items) => {
         const isActive = index === state.activeItemId
         const isLeft = state.desiredItemId - 1 === index || state.desiredItemId === 0 && index === items.length - 1
         const isRight = state.desiredItemId + 1 === index || state.desiredItemId === items.length - 1 && index === 0
         const isDesired = index === state.desiredItemId
-        
-        return (<div
+        const metadata = state.items[index]
+
+        return (<li
           key={index}
-          role="group"
+          id={metadata?.panelId}
+          role={metadata?.tabId ? 'tabpanel' : 'group'}
           aria-roledescription="slide"
-          aria-label={index + ' out of ' + items.length}
+          aria-label={metadata?.tabId ? undefined :  index + ' out of ' + items.length}
+          aria-labelledby={metadata?.tabId}
           className={`relative float-left -mr-[100%] ${isActive || isDesired ? 'visible' : 'invisible' } ${isLeft ? '-translate-x-full' : '' } ${isRight ? 'translate-x-full' : '' } ${isDesired ? 'translate-x-0' : '' } w-full h-full transition-transform ease-in-out`}
           style={{ backfaceVisibility: 'hidden', transitionDuration: duration + 'ms' }}
           onTouchStart={handleTouchStart}
@@ -90,9 +93,9 @@ export default function CarouselContainer({ children, items, ...props }) {
           onTouchEnd={handleTouchEnd}
         >
           {item}
-        </div>)
+        </li>)
       })}
-    </div>
+    </ol>
     {children}
   </div>)
 }

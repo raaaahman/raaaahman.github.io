@@ -1,4 +1,5 @@
 export const CAROUSEL_LOAD_ITEMS = 'carousel-load-items'
+export const CAROUSEL_UPDATE_ITEMS = 'carousel-update-items'
 export const CAROUSEL_SLIDE = 'carousel-slide'
 export const CAROUSEL_SLIDE_DIRECTION_PREV = 'carousel-slide-prev'
 export const CAROUSEL_SLIDE_DIRECTION_NEXT = 'carousel-slide-next'
@@ -9,6 +10,9 @@ export function carouselLoadItems(items, autoRun = false) {
   return { type: CAROUSEL_LOAD_ITEMS, payload: { items, autoRun } }
 } 
 
+export function carouselUpdateItems(items) {
+  return { type: CAROUSEL_UPDATE_ITEMS, payload: items }
+}
 export function carouselSlide(direction) {
   return { type: CAROUSEL_SLIDE, payload: direction }
 }

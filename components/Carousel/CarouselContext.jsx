@@ -1,7 +1,7 @@
 'use client'
 import { useMemo, createContext, useContext, useReducer } from 'react'
 
-import { CAROUSEL_JUMP_TO, CAROUSEL_LOAD_ITEMS, CAROUSEL_SLIDE, CAROUSEL_SLIDE_DIRECTION_PREV, CAROUSEL_TRANSITION_END } from './actions'
+import { CAROUSEL_JUMP_TO, CAROUSEL_LOAD_ITEMS, CAROUSEL_UPDATE_ITEMS, CAROUSEL_SLIDE, CAROUSEL_SLIDE_DIRECTION_PREV, CAROUSEL_TRANSITION_END } from './actions'
 
 export const CarouselContext = createContext({})
 
@@ -16,6 +16,11 @@ function carouselReducer(state, action) {
         autoRun: payload.autoRun | state.autoRun,
         activeItemId: 0,
         desriedItemId: 0,
+      }
+    case CAROUSEL_UPDATE_ITEMS:
+      return {
+        ...state,
+        items: payload,
       }
     case CAROUSEL_SLIDE:
       const newDesiredItemId = payload === CAROUSEL_SLIDE_DIRECTION_PREV
