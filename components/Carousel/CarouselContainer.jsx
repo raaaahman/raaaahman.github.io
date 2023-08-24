@@ -40,22 +40,21 @@ export default function CarouselContainer({ children, items, ...props }) {
   const touchStart = useRef(null)
   const touchEnd = useRef(null)
 
-  const onTouchStart = (event) => {
+  const handleTouchStart = (event) => {
     touchEnd.current = null
     touchStart.current = event.targetTouches[0].clientX
   }
 
-  const onTouchMove = (event) => {
+  const handleTouchMove = (event) => {
     touchEnd.current = event.targetTouches[0].clientX
   }
 
-  const onTouchEnd = () => {
+  const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return
 
     const distance = touchStart.current - touchEnd.current
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance
-    console.log(distance, isLeftSwipe, isRightSwipe)
     if (isLeftSwipe) {
       dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_NEXT))
     } else if (isRightSwipe) {
@@ -63,8 +62,14 @@ export default function CarouselContainer({ children, items, ...props }) {
     }
   } 
 
-  return (<div {...props}>
+  return (<div 
+    role="group"
+    aria-roledescription="carousel"
+    {...props}
+  >
     <div
+      aria-atomic="false"
+      aria-live={autoRun ? 'off' : 'polite'}
       className="relative w-full h-full overflow-hidden after:clear-both after:block after:content-['']"
     >
       {items.map((item, index, items) => {
@@ -75,11 +80,14 @@ export default function CarouselContainer({ children, items, ...props }) {
         
         return (<div
           key={index}
+          role="group"
+          aria-roledescription="slide"
+          aria-label={index + ' out of ' + items.length}
           className={`relative float-left -mr-[100%] ${isActive || isDesired ? 'visible' : 'invisible' } ${isLeft ? '-translate-x-full' : '' } ${isRight ? 'translate-x-full' : '' } ${isDesired ? 'translate-x-0' : '' } w-full h-full transition-transform ease-in-out`}
           style={{ backfaceVisibility: 'hidden', transitionDuration: duration + 'ms' }}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           {item}
         </div>)
