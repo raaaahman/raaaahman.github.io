@@ -14,7 +14,7 @@ export default function CarouselContainer({ children, items, ...props }) {
   }, [items])
 
   useEffect(() => {
-    if (typeof autoRun === 'number' && state.desiredItemId === state.activeItemId) {
+    if (state.isRotating && typeof autoRun === 'number' && state.desiredItemId === state.activeItemId) {
       const autoRunTimeout = setTimeout(() => {
         dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_NEXT))
       }, autoRun)
@@ -23,7 +23,7 @@ export default function CarouselContainer({ children, items, ...props }) {
         clearTimeout(autoRunTimeout)
       }
     }
-  }, [autoRun, state.activeItemId, state.desiredItemId])
+  }, [autoRun, state.activeItemId, state.desiredItemId, state.isRotating])
 
   useEffect(() => {
     const timeout = setTimeout(() => {
