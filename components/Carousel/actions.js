@@ -5,8 +5,8 @@ export const CAROUSEL_SLIDE_DIRECTION_PREV = 'carousel-slide-prev'
 export const CAROUSEL_SLIDE_DIRECTION_NEXT = 'carousel-slide-next'
 export const CAROUSEL_TRANSITION_END = 'carousel-transition-end'
 export const CAROUSEL_JUMP_TO = 'carousel-jump-to'
-export const CAROUSEL_START_ROTATING = 'carousel-start-rotating'
-export const CAROUSEL_STOP_ROTATING = 'carousel-stop-rotating'
+export const CAROUSEL_START_ROTATION = 'carousel-start-rotating'
+export const CAROUSEL_STOP_ROTATION = 'carousel-stop-rotating'
 
 export function carouselLoadItems(items) {
   return { type: CAROUSEL_LOAD_ITEMS, payload: items }
@@ -27,10 +27,10 @@ export function carouselJumpTo(index) {
   return { type: CAROUSEL_JUMP_TO, payload: index }
 }
 
-export function carouselStartRotating() {
-  return { type: CAROUSEL_START_ROTATING }
+export function carouselStartRotation() {
+  return { type: CAROUSEL_START_ROTATION }
 }
 
-export function carouselStopRotating() {
-  return { type: CAROUSEL_STOP_ROTATING }
+export function carouselStopRotation() {
+  return { type: CAROUSEL_STOP_ROTATION }
 }
