@@ -1,7 +1,7 @@
 'use client'
 import { useMemo, createContext, useContext, useReducer } from 'react'
 
-import { CAROUSEL_JUMP_TO, CAROUSEL_LOAD_ITEMS, CAROUSEL_UPDATE_ITEMS, CAROUSEL_SLIDE, CAROUSEL_SLIDE_DIRECTION_PREV, CAROUSEL_TRANSITION_END, CAROUSEL_START_ROTATING, CAROUSEL_STOP_ROTATING } from './actions'
+import { CAROUSEL_JUMP_TO, CAROUSEL_LOAD_ITEMS, CAROUSEL_UPDATE_ITEMS, CAROUSEL_SLIDE, CAROUSEL_SLIDE_DIRECTION_PREV, CAROUSEL_TRANSITION_END, CAROUSEL_START_ROTATION, CAROUSEL_STOP_ROTATION } from './actions'
 
 export const CarouselContext = createContext({})
 
@@ -42,12 +42,12 @@ function carouselReducer(state, action) {
           desiredItemId: payload
         }
         : state
-    case CAROUSEL_START_ROTATING:
+    case CAROUSEL_START_ROTATION:
       return {
         ...state,
         isRotating: true
       }
-    case CAROUSEL_STOP_ROTATING:
+    case CAROUSEL_STOP_ROTATION:
       return {
         ...state,
         isRotating: false

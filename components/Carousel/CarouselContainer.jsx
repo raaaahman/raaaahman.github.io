@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { useCarousel } from './CarouselContext'
-import { CAROUSEL_SLIDE_DIRECTION_NEXT, CAROUSEL_SLIDE_DIRECTION_PREV, carouselLoadItems, carouselSlide, carouselTransitionEnd } from './actions'
+import { CAROUSEL_SLIDE_DIRECTION_NEXT, CAROUSEL_SLIDE_DIRECTION_PREV, carouselLoadItems, carouselSlide, carouselStartRotation, carouselStopRotation, carouselTransitionEnd } from './actions'
 
 export default function CarouselContainer({ children, items, ...props }) {
   const { config, state, dispatch } = useCarousel()
@@ -60,11 +60,13 @@ export default function CarouselContainer({ children, items, ...props }) {
     } else if (isRightSwipe) {
       dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_PREV))
     }
-  } 
+  }
 
-  return (<div 
+  return (<div
     role="group"
     aria-roledescription="carousel"
+    onFocus={() => dispatch(carouselStopRotation())}
+    onBlur={() => dispatch(carouselStartRotation())}
     {...props}
   >
     <ol

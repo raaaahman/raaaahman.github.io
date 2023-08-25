@@ -1,12 +1,12 @@
 import { useCarousel } from "./CarouselContext"
-import { carouselStartRotating, carouselStopRotating } from "./actions"
+import { carouselStartRotation, carouselStopRotation } from "./actions"
 
 export default function CarouselRotationControl({ ...props }) {
   const { state, dispatch } = useCarousel()
   
-  const handleStopRotating = () => dispatch(carouselStopRotating())
+  const handleStopRotating = () => dispatch(carouselStopRotation())
 
-  const handleStartRotating = () => dispatch(carouselStartRotating())
+  const handleStartRotating = () => dispatch(carouselStartRotation())
 
   return (<div {...props}>
     {state.isRotating
