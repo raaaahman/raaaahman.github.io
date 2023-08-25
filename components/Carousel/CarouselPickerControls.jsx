@@ -22,7 +22,7 @@ export default function CarouselPickerControls({ indicatorClassName, activeClass
       })
     )
     dispatch(carouselUpdateItems(newItems))
-  }, [state.items])
+  }, [])
 
   return (<ol 
     role="tablist" 
