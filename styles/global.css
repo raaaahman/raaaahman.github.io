@@ -34,6 +34,18 @@
   .section-title {
     @apply text-2xl font-extrabold leading-snug my-6;
   }
+
+  .idle-slide-in-left {
+    @apply translate-x-full opacity-0 
+  }
+  
+  .idle-slide-in-right {
+    @apply -translate-x-full opacity-0
+  }
+  
+  .animate-slide-in {
+    @apply translate-x-0 opacity-100 transition-[translate_opacity] duration-[600ms] ease-in-out
+  }
 }
 
 .radial-gradient-white-20 {
