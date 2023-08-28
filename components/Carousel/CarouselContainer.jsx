@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { useCarousel } from './CarouselContext'
-import { CAROUSEL_SLIDE_DIRECTION_NEXT, CAROUSEL_SLIDE_DIRECTION_PREV, carouselLoadItems, carouselSlide, carouselTransitionEnd } from './actions'
+import { CAROUSEL_SLIDE_DIRECTION_NEXT, CAROUSEL_SLIDE_DIRECTION_PREV, carouselLoadItems, carouselSlide, carouselStartRotation, carouselStopRotation, carouselTransitionEnd } from './actions'
 
 export default function CarouselContainer({ children, items, ...props }) {
   const { config, state, dispatch } = useCarousel()
@@ -14,7 +14,7 @@ export default function CarouselContainer({ children, items, ...props }) {
   }, [items])
 
   useEffect(() => {
-    if (typeof autoRun === 'number' && state.desiredItemId === state.activeItemId) {
+    if (state.isRotating && typeof autoRun === 'number' && state.desiredItemId === state.activeItemId) {
       const autoRunTimeout = setTimeout(() => {
         dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_NEXT))
       }, autoRun)
@@ -23,7 +23,7 @@ export default function CarouselContainer({ children, items, ...props }) {
         clearTimeout(autoRunTimeout)
       }
     }
-  }, [autoRun, state.activeItemId, state.desiredItemId])
+  }, [autoRun, state.activeItemId, state.desiredItemId, state.isRotating])
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -40,51 +40,64 @@ export default function CarouselContainer({ children, items, ...props }) {
   const touchStart = useRef(null)
   const touchEnd = useRef(null)
 
-  const onTouchStart = (event) => {
+  const handleTouchStart = (event) => {
     touchEnd.current = null
     touchStart.current = event.targetTouches[0].clientX
   }
 
-  const onTouchMove = (event) => {
+  const handleTouchMove = (event) => {
     touchEnd.current = event.targetTouches[0].clientX
   }
 
-  const onTouchEnd = () => {
+  const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return
 
     const distance = touchStart.current - touchEnd.current
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance
-    console.log(distance, isLeftSwipe, isRightSwipe)
     if (isLeftSwipe) {
       dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_NEXT))
     } else if (isRightSwipe) {
       dispatch(carouselSlide(CAROUSEL_SLIDE_DIRECTION_PREV))
     }
-  } 
+  }
 
-  return (<div {...props}>
-    <div
-      className="relative w-full h-full overflow-hidden after:clear-both after:block after:content-['']"
+  return (<div
+    role="group"
+    aria-roledescription="carousel"
+    onFocus={() => dispatch(carouselStopRotation())}
+    onBlur={() => dispatch(carouselStartRotation())}
+    {...props}
+  >
+    <ol
+      aria-atomic="false"
+      aria-live={autoRun ? 'off' : 'polite'}
+      className="list-none relative w-full h-full overflow-hidden after:clear-both after:block after:content-['']"
     >
       {items.map((item, index, items) => {
         const isActive = index === state.activeItemId
         const isLeft = state.desiredItemId - 1 === index || state.desiredItemId === 0 && index === items.length - 1
         const isRight = state.desiredItemId + 1 === index || state.desiredItemId === items.length - 1 && index === 0
         const isDesired = index === state.desiredItemId
-        
-        return (<div
+        const metadata = state.items[index]
+
+        return (<li
           key={index}
+          id={metadata?.panelId}
+          role={metadata?.tabId ? 'tabpanel' : 'group'}
+          aria-roledescription="slide"
+          aria-label={metadata?.tabId ? undefined :  index + ' out of ' + items.length}
+          aria-labelledby={metadata?.tabId}
           className={`relative float-left -mr-[100%] ${isActive || isDesired ? 'visible' : 'invisible' } ${isLeft ? '-translate-x-full' : '' } ${isRight ? 'translate-x-full' : '' } ${isDesired ? 'translate-x-0' : '' } w-full h-full transition-transform ease-in-out`}
           style={{ backfaceVisibility: 'hidden', transitionDuration: duration + 'ms' }}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           {item}
-        </div>)
+        </li>)
       })}
-    </div>
+    </ol>
     {children}
   </div>)
 }

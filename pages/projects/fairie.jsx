@@ -15,6 +15,7 @@ import CarouselContainer from '../../components/Carousel/CarouselContainer'
 import { CarouselControlNext, CarouselControlPrev } from '../../components/Carousel/CarouselControls'
 import CarouselContextProvider from '../../components/Carousel/CarouselContext'
 import Indicators from '../../components/Carousel/Indicators'
+import AnimateOnScroll from '../../components/AnimateOnScroll'
 
 export default function FAIRIEProject() {
   return (<Layout className="lg:flex lg:flex-wrap">
@@ -54,125 +55,149 @@ export default function FAIRIEProject() {
       />
     </section>
     <section className="hidden md:block">
-      <h2 className="invisible">Screenshots</h2>
       <CarouselContextProvider
-        duration={600}
-        autoRun={4000}
-      >
-        <figure className="relative">
-          <CarouselControlPrev 
-            size="3rem"
-            className="flex w-[15%] items-center justify-center border-0 bg-none text-center text-white-strong opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none" 
-          />
-          <Image
-            src={laptopFrame}
-            alt="Portable computer."
-            role="presentation"
-            className="relative z-10"
-          />
-          <CarouselContainer
-            className="absolute z-0 w-[76%] h-[76%] top-[9%] left-[12%] object-cover object-center"
-            items={[
-              <Image
-                className="block w-full h-full object-cover"
-                src={fairieSearch}
-                alt="F.A.I.R.I.E. contains a lot of information on The Index universe, that players can access through search features and pseudo-hacking of websites."
-              />,
-              <Image
-                className="block w-full h-full object-cover"
-                src={fairieMailbox}
-                alt="Players can consult emails they received from various in-game characters as they progress through the stories."
-              />,
-              <Image
-                className="block w-full h-full object-cover"
-                src={fairieEmail}
-                alt="F.A.I.R.I.E. allows players to gather clues through sending fake emails to the in-game characters"
-              /> 
-            ]}
-          />
-          <Indicators 
-            className="list-none absolute bottom-[15%] right-[12%] left-[12%] z-[15] flex justify-center"
-            indicatorClassName="relative z-[16] mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white-strong bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-            activeClassName="relative z-[16] mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white-strong bg-clip-padding p-0 -indent-[999px] opacity-100 transition-opacity ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-          />
-          <CarouselControlNext 
-            size="3rem"
-            className="flex w-[15%] items-center justify-center border-0 bg-none text-center text-white-strong opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none"
-          />
-        </figure>
+          duration={600}
+          autoRun={4000}
+        >
+        <AnimateOnScroll
+          threshold={[0]}
+          idleClassName="md:idle-slide-in-left"
+          animateClassName="md:animate-slide-in"
+        >
+          <h2 className="invisible">Screenshots</h2>
+          <figure className="relative">
+            <CarouselControlPrev 
+              size="3rem"
+              className="flex w-[15%] items-center justify-center border-0 bg-none text-center text-white-strong opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none" 
+            />
+            <Image
+              src={laptopFrame}
+              alt="Portable computer."
+              role="presentation"
+              className="hidden lg:block relative z-10"
+            />
+            <CarouselContainer
+              className="absolute z-0 w-[76%] h-[76%] top-[9%] left-[12%] object-cover object-center"
+              items={[
+                <Image
+                  className="block w-full h-full object-cover"
+                  src={fairieSearch}
+                  alt="F.A.I.R.I.E. contains a lot of information on The Index universe, that players can access through search features and pseudo-hacking of websites."
+                />,
+                <Image
+                  className="block w-full h-full object-cover"
+                  src={fairieMailbox}
+                  alt="Players can consult emails they received from various in-game characters as they progress through the stories."
+                />,
+                <Image
+                  className="block w-full h-full object-cover"
+                  src={fairieEmail}
+                  alt="F.A.I.R.I.E. allows players to gather clues through sending fake emails to the in-game characters"
+                /> 
+              ]}
+            />
+            <Indicators 
+              className="list-none absolute bottom-[15%] right-[12%] left-[12%] z-[15] flex justify-center"
+              indicatorClassName="relative z-[16] mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white-strong bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+              activeClassName="relative z-[16] mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white-strong bg-clip-padding p-0 -indent-[999px] opacity-100 transition-opacity ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+            />
+            <CarouselControlNext 
+              size="3rem"
+              className="flex w-[15%] items-center justify-center border-0 bg-none text-center text-white-strong opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+            />
+          </figure>
+        </AnimateOnScroll>
       </CarouselContextProvider>
     </section>
-    <section className="md:max-w-6xl md:mx-auto md:flex">
-      <div className="md:flex-1 md:my-8 md:px-12 p-4">
+    <section className="lg:max-w-6xl lg:mx-auto lg:flex">
+      <div className="lg:flex-1 lg:my-8 lg:px-12 p-4">
         <CarouselContextProvider
           duration={600}
           autoRun={4000}
         >
-          <div className="relative mx-auto">
-            <CarouselControlPrev 
-              size="2rem"
-              className="hidden md:flex w-[15%] items-center justify-end border-0 bg-none text-center text-white-strong opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none" 
-            />
-            <figure className="relative w-fit m-auto">
-              <Image
-                src={mobileFrame}
-                role="presentation"
-                alt="A mobile phone."
-                className="hidden md:block relative z-10"
+          <AnimateOnScroll
+            threshold={[0]}
+            idleClassName="md:idle-slide-in-right"
+            animateClassName="md:animate-slide-in"
+          >
+            <div className="relative mx-auto">
+              <CarouselControlPrev 
+                size="2rem"
+                className="hidden lg:flex w-[15%] items-center justify-end border-0 bg-none text-center text-white-strong opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none" 
               />
-              <CarouselContainer
-                className="md:absolute md:w-[89%] md:h-[92%] md:top-[4%] md:left-[5.5%] md:object-cover"
-                items={[
-                  <Image
-                    className="block w-full"
-                    src={fairieHome}
-                    alt="F.A.I.R.I.E. simulates an AI companion to assist players through their journey in The Index franchise."
-                  />,
-                  <Image
-                    className="block w-full"
-                    src={fairieTerminal}
-                    alt="F.A.I.R.I.E. let players immerse themselves as hackers through its own command line interface, where they can search for clues using commands like 'search' or 'connect'."
-                  />,
-                  <Image
-                    className="block w-full"
-                    src={fairiePhone}
-                    alt="Players can use phone numbers they might have gathered through the app, or any other source from the Index universe to listen phone records from the in-world characters."
-                  />
-                ]} />
-                <Indicators 
-                  className="list-none absolute bottom-[4%] md:bottom-[6%] right-[5.5%] left-[5.5%] z-[15] flex justify-center"
-                  indicatorClassName="relative z-[16] mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white-strong bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-                  activeClassName="relative z-[16] mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white-strong bg-clip-padding p-0 -indent-[999px] opacity-100 transition-opacity ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+              <figure className="relative w-fit m-auto">
+                <Image
+                  src={mobileFrame}
+                  role="presentation"
+                  alt="A mobile phone."
+                  className="hidden lg:block relative z-10"
                 />
-            </figure>
-            <CarouselControlNext 
-              size="2rem"
-              className="hidden md:flex w-[15%] items-center justify-start border-0 bg-none text-center text-white-strong opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none" 
-            />
-          </div>
+                <CarouselContainer
+                  className="lg:absolute lg:w-[89%] lg:h-[92%] lg:top-[4%] lg:left-[5.5%] lg:object-cover"
+                  items={[
+                    <Image
+                      className="block w-full"
+                      src={fairieHome}
+                      alt="F.A.I.R.I.E. simulates an AI companion to assist players through their journey in The Index franchise."
+                    />,
+                    <Image
+                      className="block w-full"
+                      src={fairieTerminal}
+                      alt="F.A.I.R.I.E. let players immerse themselves as hackers through its own command line interface, where they can search for clues using commands like 'search' or 'connect'."
+                    />,
+                    <Image
+                      className="block w-full"
+                      src={fairiePhone}
+                      alt="Players can use phone numbers they might have gathered through the app, or any other source from the Index universe to listen phone records from the in-world characters."
+                    />
+                  ]} />
+                  <Indicators 
+                    className="list-none absolute bottom-[4%] lg:bottom-[6%] right-[5.5%] left-[5.5%] z-[15] flex justify-center"
+                    indicatorClassName="relative z-[16] mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white-strong bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    activeClassName="relative z-[16] mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white-strong bg-clip-padding p-0 -indent-[999px] opacity-100 transition-opacity ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                  />
+              </figure>
+              <CarouselControlNext 
+                size="2rem"
+                className="hidden lg:flex w-[15%] items-center justify-start border-0 bg-none text-center text-white-strong opacity-50 transition-opacity duration-50 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white-strong hover:no-underline hover:opacity-90 hover:outline-none focus:opacity-90 focus:outline-none motion-reduce:transition-none" 
+              />
+            </div>
+          </AnimateOnScroll>
         </CarouselContextProvider>
       </div>
-      <div className="md:flex-1 mb-8 my-8 p-4 md:px-36 md:mt-40">
-          <h2 className="text-2xl text-white-weak mb-8">
-            <strong>F.A.I.R.I.E.</strong> is a web application that plays interactive stories.
-          </h2>
-          <p className="mb-4"> 
-            It revolves around the concept of <em>social engineering</em> and allows its users to communicate with the characters from the world of <em>The Index</em> through fake emails and phone calls.
-          </p>
-          <p>
-            It also let the players search for clues through a <em>command line interface</em> and hacking inspired mini-games!
-          </p>
+      <div className="lg:flex-1 mb-8 my-8 p-4 lg:px-36 lg:mt-40">
+        <AnimateOnScroll
+          threshold={[0.2]}
+          idleClassName="md:idle-slide-in-left"
+          animateClassName="md:animate-slide-in"
+        >
+            <h2 className="text-2xl text-white-weak mb-8">
+              <strong>F.A.I.R.I.E.</strong> is a web application that plays interactive stories.
+            </h2>
+            <p className="mb-4"> 
+              It revolves around the concept of <em>social engineering</em> and allows its users to communicate with the characters from the world of <em>The Index</em> through fake emails and phone calls.
+            </p>
+            <p>
+              It also let the players search for clues through a <em>command line interface</em> and hacking inspired mini-games!
+            </p>
+        </AnimateOnScroll>
       </div>
     </section>
-    <section className="my-8 p-4 md:max-w-4xl md:mx-auto">
-      <h2 className="text-2xl font-bold">Technical overview:</h2>
-      <p className="text-xl font-semibold mb-8">Using web technologies to tell stories</p>
-      <p className="mb-4">
-        F.A.I.R.I.E. is a web application made with <strong>React</strong> and <strong>Styled Components</strong>. It reads stories written in the <a href="https://yarnspinner.dev/">Yarn Spinner</a> syntax that are stored in Google's Cloud Service through the <strong>FireBase</strong> 
-      </p>
-      <p>
-        The project was made possible through the vigilant overseeing of <a href="https://www.swordmonkey.com">Swordmonkey Studios</a>. As well as the <a href="https://github.com/mnbroatch/yarn-bound">Yarn Bound</a> library, maintained by <a href="https://github.com/mnbroatch">Matthew Broatch</a>.
-      </p>
+    <section className="my-8 p-4 lg:max-w-4xl lg:mx-auto">
+      <AnimateOnScroll
+        threshold={[0]}
+        idleClassName="md:idle-slide-in-left"
+        animateClassName="md:animate-slide-in"
+      >
+         <h2 className="text-2xl font-bold">Technical overview:</h2>
+        <p className="text-xl font-semibold mb-8">Using web technologies to tell stories</p>
+        <p className="mb-4">
+          F.A.I.R.I.E. is a web application made with <strong>React</strong> and <strong>Styled Components</strong>. It reads stories written in the <a href="https://yarnspinner.dev/">Yarn Spinner</a> syntax that are stored in Google's Cloud Service through the <strong>FireBase</strong> 
+        </p>
+        <p>
+          The project was made possible through the vigilant overseeing of <a href="https://www.swordmonkey.com">Swordmonkey Studios</a>. As well as the <a href="https://github.com/mnbroatch/yarn-bound">Yarn Bound</a> library, maintained by <a href="https://github.com/mnbroatch">Matthew Broatch</a>.
+        </p>
+      </AnimateOnScroll>
     </section>
   </Layout>)
 }
