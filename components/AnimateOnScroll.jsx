@@ -6,6 +6,7 @@ export default function AnimateOnScroll({
   root = null,
   rootMargin = '0%',
   threshold = 1,
+  className,
   idleClassName, 
   animateClassName,
   ...props 
@@ -38,7 +39,7 @@ export default function AnimateOnScroll({
     }
   }, [elementRef.current])
    
-  return (<div ref={elementRef} className={isVisible ? animateClassName : idleClassName } {...props}>
+  return (<div ref={elementRef} className={(isVisible ? animateClassName : idleClassName) + ' ' + className} {...props}>
     {children}
   </div>)
 }
