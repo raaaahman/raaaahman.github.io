@@ -10,3 +10,9 @@
 .clip {
   animation: clip 0.4s ease-in-out forwards;
 }
+
+@media (prefers-reduced-motion) {
+  .clip {
+    animation: none;
+  }
+}
