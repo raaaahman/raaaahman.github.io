@@ -43,6 +43,15 @@ module.exports = {
     extend: {
       boxShadow: {
         element: '0 8px 16px 0 rgba(0,0,0,0.6)'
+      },
+      keyframes: {
+        reveal: {
+          '0%': { 'clip-path': 'inset(0 100% 0 0)' },
+          '100%': { 'clip-path': 'var(--clip-value)' }
+        }
+      },
+      animation: {
+        reveal: 'reveal 0.4s ease-in-out forwards'
       }
     }
   },
