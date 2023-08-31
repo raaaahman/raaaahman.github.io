@@ -14,13 +14,23 @@ export default function Layout({ children, home, className, ...props }) {
             [
               { 
                 title: 'Home',
-                to: '/#intro', 
+                to: '/', 
                 Icon: HomeIcon
               },
               {
                 title: 'Projects',
-                to: '/#projects',
-                Icon: FolderIcon
+                Icon: FolderIcon,
+                to: '/projects/',
+                items: [
+                  {
+                    to: '/projects/fairie',
+                    title: 'F.A.I.R.I.E.'
+                  },
+                  {
+                    to: '/projects/devindetails',
+                    title: 'Dev In Details'
+                  }
+                ]
               }
             ],
             [
