@@ -36,7 +36,7 @@ export default function HomePage({ allProjectsData }) {
       />
     </Head>
     <section id="intro" className="top-left-section">
-      <span className="text-lg">Sylvain Schellenberger</span>
+      <span className="block text-lg text-right md:text-left">Sylvain Schellenberger</span>
       <h1 className="page-title">Freelance React / Next Developer</h1>
       <p className="text-justify mb-4">
         Are you looking for a <strong>front-end developer</strong> with an itch for innovation and a thirst for <strong>creative coding</strong>? Look no further!</p>

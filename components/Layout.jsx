@@ -6,10 +6,10 @@ import GitHubIcon from './icons/GitHubIcon'
 
 export default function Layout({ children, home, className, ...props }) {
   return (<>
-    <div className="container min-h-screen mx-auto lg:px-8 lg:py-4 flex">
-      <aside className="hidden md:block md:basis-32 md:flex-shrink-0">
+    <div className="container min-h-screen mx-auto lg:px-8 lg:py-4 flex flex-col md:flex-row">
+      <aside className="block basis-12 md:basis-32 md:flex-shrink-0">
         <NavBar
-          className="fixed my-4 mx-8"
+          className="fixed my-4 mx-4 md:mx-8 z-20"
           groups={[
             [
               { 
