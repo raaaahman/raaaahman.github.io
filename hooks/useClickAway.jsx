@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'react'
 // Copied from useHooks library
 // @see https://github.com/uidotdev/usehooks/blob/e5d445ead108b57e081fd1177f440b05ebc5d184/index.js#L101
 
-export default function useClickAway(callback) {
+export default function useClickAway(callback, dependencies) {
   const ref = useRef()
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function useClickAway(callback) {
       document.removeEventListener('mousedown', handler)
       document.removeEventListener('touchstart', handler)
     }
-  }, [])
+  }, dependencies)
 
   return ref
 }
