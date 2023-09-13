@@ -7,13 +7,16 @@ import { ResizeContainer } from '../Resize/ResizeContainer'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 
 export default function NavbarMobile({ links, groups, className, ...props }) {
-  return ((<DropdownContextProvider>
+  return ((<DropdownContextProvider
+    renderContainer={({ children, ref }) => (<nav ref={ref} >{children}</nav>)}
+  >
     <DropdownToggle
       render={({ isOpen }) => isOpen
         ? (<XMarkIcon title="Close Menu" aria-hidden={false} className="box-border w-14 h-14 p-3" />)
         : (<Bars3Icon title="Open Menu" aria-hidden={false} className="box-border w-14 h-14 p-3" />)
       }
       className={className + " bg-grey-dark rounded-full border border-white-10 shadow-element"}
+      tabIndex={-1}
     />
     <DropdownItems
       renderContainer={({ isOpen, children }) => (
@@ -41,6 +44,7 @@ export default function NavbarMobile({ links, groups, className, ...props }) {
           >
             <DropdownToggle
               className="flex items-center leading-10"
+              tabIndex={-1}
             >
               <item.Icon role="presentation" className="block shrink-0 w-6 h-6 me-2 text-white-weak" />
               <span className="text-white-medium">{item.title}</span>

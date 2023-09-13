@@ -5,7 +5,7 @@ import DropdownDispatchContext from './DispatchContext'
 import DropdownStateContext from './StateContext'
 import useClickAway from '../../hooks/useClickAway'
 
-export default function DropdownContextProvider({ children, baseClassName = '', openClassName = '', closedClassName = '', renderContainer, ...props }) {
+export default function DropdownContextProvider({ children, renderContainer, ...props }) {
   const [ isOpen, setIsOpen ] = useState(false)
 
   const dispatch = useMemo(() => ({
@@ -20,10 +20,9 @@ export default function DropdownContextProvider({ children, baseClassName = '', 
   return (<DropdownDispatchContext.Provider value={dispatch}>
     <DropdownStateContext.Provider value={isOpen}>
       {typeof renderContainer === 'function'
-        ? renderContainer({ isOpen, children, ...props })
+        ? renderContainer({ isOpen, children, ref, ...props })
         : (<div
           ref={ref}
-          className={baseClassName + ' ' + (isOpen ? openClassName : closedClassName)}
           {...props}
         >
           {children}
