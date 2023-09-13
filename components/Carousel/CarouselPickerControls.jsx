@@ -49,18 +49,17 @@ export default function CarouselPickerControls({ indicatorClassName, activeClass
         const isActiveTab = index === state.activeItemId
 
         return (<li key={index}
-            id={item.tabId}
-            tabindex={isActiveTab ? 0 : -1}
-            type="button"
-            role="tab"
-            aria-controls={item.panelId}
-            aria-selected={isActiveTab}
-            aria-label={'Slide ' + (index + 1)}
-            className={index === state.desiredItemId ? activeClassName : indicatorClassName}
-            style={{ transitionDuration: config.duration }}
-            onClick={createHandler(index)}
-          />
-        )
+          id={item.tabId}
+          tabIndex={isActiveTab ? 0 : -1}
+          type="button"
+          role="tab"
+          aria-controls={item.panelId}
+          aria-selected={isActiveTab}
+          aria-label={'Slide ' + (index + 1)}
+          className={index === state.desiredItemId ? activeClassName : indicatorClassName}
+          style={{ transitionDuration: config.duration }}
+          onClick={createHandler(index)}
+        />)
       }
     )}
   </ol>)

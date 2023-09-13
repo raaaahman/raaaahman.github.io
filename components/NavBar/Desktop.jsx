@@ -9,22 +9,24 @@ import DropdownItems from '../Dropdown/Items'
 export default function NavbarDesktop({ links, groups, className, ...props}) {
   const { pathname } = useRouter()
 
-  return (<ul 
-    className={className + " list-style-none w-max bg-grey-darker bg-gradient-to-b from-white-5 rounded-full border border-white-10 p-1 shadow-element"}
-    {...props}
-  >
-    {links.length > 0
-      ? <LinksGroup links={links} activeLink={pathname} />
-      : null
-    }
-    {groups.length > 0
-      ? groups.map((links, index) => (<Fragment key={'group-' + index}>
-        {index > 0 ? <hr className="border-top border-grey-400 w-8 my-2 mx-auto"/> : null}
-        <LinksGroup links={links} activeLink={pathname} />
-      </Fragment>))
-      : null
-    }
-  </ul>)
+  return (<nav>
+    <ul 
+      className={className + " list-style-none w-max bg-grey-darker bg-gradient-to-b from-white-5 rounded-full border border-white-10 p-1 shadow-element"}
+      {...props}
+    >
+      {links.length > 0
+        ? <LinksGroup links={links} activeLink={pathname} />
+        : null
+      }
+      {groups.length > 0
+        ? groups.map((links, index) => (<Fragment key={'group-' + index}>
+          {index > 0 ? <hr className="border-top border-grey-400 w-8 my-2 mx-auto"/> : null}
+          <LinksGroup links={links} activeLink={pathname} />
+        </Fragment>))
+        : null
+      }
+    </ul>
+  </nav>)
 }
 
 function LinksGroup({ links, activeLink }) {
@@ -43,6 +45,7 @@ function LinksGroup({ links, activeLink }) {
         >
           <DropdownToggle
             className={linkClassName}
+            tabIndex={-1}
           >
             <Icon
               title={title}
