@@ -1,5 +1,8 @@
+import { useRef } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import Script from 'next/script'
+import resolveConfig from 'tailwindcss/resolveConfig'
 
 import SkillList from '../../components/SkillList'
 import Layout from '../../components/Layout'
@@ -18,9 +21,15 @@ import CarouselPickerControls from '../../components/Carousel/CarouselPickerCont
 import AnimateOnScroll from '../../components/AnimateOnScroll'
 import CarouselRotationControl from '../../components/Carousel/CarouselRotationControl'
 import CarouselOuterContainer from '../../components/Carousel/CarouselOuterContainer'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
+import tailwindConfig from '../../tailwind.config'
 
 export default function FAIRIEProject() {
-  return (<Layout className="lg:flex lg:flex-wrap md:overflow-x-hidden">
+  const canvasRef = useRef()
+  const config = resolveConfig(tailwindConfig)
+  const md = useMediaQuery(`(min-width: ${config.theme.screens.md})`)
+
+  return (<Layout className="relative lg:flex lg:flex-wrap md:overflow-x-hidden md:overflow-y-visible">
     <Head>
       <title>F.A.I.R.I.E. | Sylvain Schellenberger</title>
       <link rel="icon" href="/favicon.ico"/>
@@ -37,12 +46,12 @@ export default function FAIRIEProject() {
         content="F.A.I.R.I.E., Interactive Fiction in The Index's universe."
       />
     </Head>
-    <section id="intro" className="top-left-section">
+    <section id="intro" className="relative z-[5] top-left-section">
       <h1 className="page-title">F.A.I.R.I.E.</h1>
       <p className="text-justify mb-4"><a href="https://theindex.world/">The Index project</a> is an entertainment franchise created by Rustin L. Odom, it is set in a mysterious world where the laws of reality can be bent, broken and exploited through hacking the mind of the masses.</p>
       <p className="text-justify mb-4">F.A.I.R.I.E. is an <strong>interactive fiction</strong> made as a web application. It is part of a wider <strong>Alternate Reality Game</strong> set in this universe, spanning across multiple medias: a web series, a Discord server, a twitch channel...</p>
     </section>
-    <section className="top-right-section">
+    <section className="relative z-[5] top-right-section">
       <h2 className="text-2xl text-center font-extrabold">Technologies In Use</h2>
       <SkillList
         skills={[
@@ -56,7 +65,7 @@ export default function FAIRIEProject() {
         ]}
       />
     </section>
-    <section className="hidden md:block">
+    <section className="relative z-[5] hidden md:block">
       <CarouselContextProvider
         duration={600}
         autoRun={4000}
@@ -118,7 +127,7 @@ export default function FAIRIEProject() {
         </AnimateOnScroll>
       </CarouselContextProvider>
     </section>
-    <section className="lg:max-w-6xl lg:mx-auto lg:flex">
+    <section className="relative z-[5] lg:max-w-6xl lg:mx-auto lg:flex">
     <div className="lg:flex-1 mb-8 my-8 p-4 lg:px-36 lg:mt-40 lg:order-1">
         <AnimateOnScroll
           threshold={[0.2]}
@@ -202,7 +211,7 @@ export default function FAIRIEProject() {
         </CarouselContextProvider>
       </div>
     </section>
-    <section className="my-8 p-4 lg:max-w-4xl lg:mx-auto">
+    <section className="relative z-[5] my-8 p-4 lg:max-w-4xl lg:mx-auto md:mb-40">
       <AnimateOnScroll
         threshold={[0.2]}
         idleClassName="motion-safe:md:[&>*]:idle-slide-in-left"
@@ -218,5 +227,29 @@ export default function FAIRIEProject() {
         </p>
       </AnimateOnScroll>
     </section>
+    {md ? (<>
+      <canvas 
+        ref={canvasRef}
+        width="768"
+        height="320"
+        className="absolute bottom-0 w-full box-border skew-y-3 -translate-y-12 rounded-3xl"
+      />
+      <Script 
+        src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          const sandbox = new GlslCanvas(canvasRef.current)
+
+          fetch('/scripts/borealis.frag')
+          .then(response => {
+            return response.text()
+          })
+          .then(fragment => {
+            sandbox.load(fragment)
+          })
+        }}
+      />
+    </>
+    ): null}
   </Layout>)
 }
