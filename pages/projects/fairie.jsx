@@ -230,14 +230,15 @@ export default function FAIRIEProject() {
     {md ? (<>
       <canvas 
         ref={canvasRef}
-        width="768"
-        height="320"
-        className="absolute bottom-0 w-full box-border skew-y-3 -translate-y-12 rounded-3xl"
+        style={{
+          '--canvas-min-height' : config.theme.screens.md + 'px' 
+        }}
+        className="absolute bottom-0 w-full max-w-[var(--canvas-min-height)] min-h-[320px] box-border skew-y-3 -translate-y-12 rounded-3xl"
       />
       <Script 
         src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"
         strategy="lazyOnload"
-        onLoad={() => {
+        onReady={() => {
           const sandbox = new GlslCanvas(canvasRef.current)
 
           fetch('/scripts/borealis.frag')
