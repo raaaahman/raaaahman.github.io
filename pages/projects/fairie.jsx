@@ -1,8 +1,5 @@
-import { useRef } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import Script from 'next/script'
-import resolveConfig from 'tailwindcss/resolveConfig'
 
 import SkillList from '../../components/SkillList'
 import Layout from '../../components/Layout'
@@ -21,14 +18,9 @@ import CarouselPickerControls from '../../components/Carousel/CarouselPickerCont
 import AnimateOnScroll from '../../components/AnimateOnScroll'
 import CarouselRotationControl from '../../components/Carousel/CarouselRotationControl'
 import CarouselOuterContainer from '../../components/Carousel/CarouselOuterContainer'
-import { useMediaQuery } from '../../hooks/useMediaQuery'
-import tailwindConfig from '../../tailwind.config'
+import ShaderCanvas from '../../components/ShaderCanvas'
 
 export default function FAIRIEProject() {
-  const canvasRef = useRef()
-  const config = resolveConfig(tailwindConfig)
-  const md = useMediaQuery(`(min-width: ${config.theme.screens.md})`)
-
   return (<Layout className="relative lg:flex lg:flex-wrap md:overflow-x-hidden md:overflow-y-visible">
     <Head>
       <title>F.A.I.R.I.E. | Sylvain Schellenberger</title>
@@ -227,30 +219,9 @@ export default function FAIRIEProject() {
         </p>
       </AnimateOnScroll>
     </section>
-    {md ? (<>
-      <canvas 
-        ref={canvasRef}
-        style={{
-          '--canvas-min-height' : config.theme.screens.md + 'px' 
-        }}
-        className="absolute bottom-0 w-full max-w-[var(--canvas-min-height)] min-h-[320px] box-border skew-y-3 -translate-y-12 rounded-3xl"
-      />
-      <Script 
-        src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"
-        strategy="lazyOnload"
-        onReady={() => {
-          const sandbox = new GlslCanvas(canvasRef.current)
-
-          fetch('/scripts/borealis.frag')
-          .then(response => {
-            return response.text()
-          })
-          .then(fragment => {
-            sandbox.load(fragment)
-          })
-        }}
-      />
-    </>
-    ): null}
+    <ShaderCanvas 
+      fragmentUrl="/scripts/borealis.frag"
+      className="absolute bottom-0 w-full max-w-[var(--breakpoint-md)] min-h-[320px] box-border skew-y-3 -translate-y-12 rounded-3xl"
+    />
   </Layout>)
 }
