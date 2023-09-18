@@ -11,6 +11,7 @@ import SkillList from '../components/SkillList'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../tailwind.config'
+import ShaderCanvas from '../components/ShaderCanvas'
 
 export async function getStaticProps() {
   const allProjectsData = getSortedProjectsData()
@@ -99,27 +100,10 @@ export default function HomePage({ allProjectsData }) {
         ))}
       </div>
     </section>
-    {md ? (<>
-      <canvas ref={canvasRef}
-        className="fixed left-0 top-0 w-full min-h-screen"
-      />
-      <Script
-        src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"
-        strategy="lazyOnload"
-        onReady={() => {
-          const sandbox = new GlslCanvas(canvasRef.current)
-
-          fetch('/scripts/borealis.frag')
-          .then(response => {
-            return response.text()
-          })
-          .then(fragment => {
-            sandbox.load(fragment)
-          })
-        }}
-      />
-    </>)
-    : null}
+    <ShaderCanvas
+      fragmentUrl="/scripts/borealis.frag"
+      className="fixed left-0 top-0 w-full min-h-screen"
+    />
   </Layout>)
 }
 
