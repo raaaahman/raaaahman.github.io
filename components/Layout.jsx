@@ -52,9 +52,9 @@ export default function Layout({ children, home, className, ...props }) {
       </aside>
       <main className={'md:basis-auto flex-grow ' + className} {...props}>{children}</main>
     </div>
-    <footer className="basis-full py-12 px-2">
+    <footer className="relative z-10 basis-full py-12 px-2">
       <p className="text-center my-4">Created by <strong>Sylvain Schellenberger</strong></p>
-      <p className="text-center my-4">Design by <a href="https://once-ui.com/">Once UI</a></p>
+      <p className="text-center my-4">Design inspired by <a href="https://once-ui.com/">Once UI</a></p>
     </footer>
   </>)
 }
