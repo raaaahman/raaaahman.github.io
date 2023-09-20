@@ -14,9 +14,6 @@ export default function ShaderCanvas({ fragmentUrl, ...props }) {
   return md ? (<>
     <canvas 
       ref={canvasRef}
-      style={{
-        '--breakpoint-md' : config.theme.screens.md + 'px' 
-      }}
       {...props}
     />
     <Script 

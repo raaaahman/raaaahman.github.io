@@ -221,7 +221,7 @@ export default function FAIRIEProject() {
     </section>
     <ShaderCanvas 
       fragmentUrl="/scripts/borealis.frag"
-      className="absolute bottom-0 w-full max-w-[var(--breakpoint-md)] min-h-[320px] box-border skew-y-3 -translate-y-12 rounded-3xl"
+      className="absolute bottom-0 w-full min-h-[320px] box-border skew-y-3 -translate-y-12 rounded-3xl"
     />
   </Layout>)
 }
