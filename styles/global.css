@@ -28,7 +28,7 @@
   }
 
   .top-right-section__title {
-    @apply md:w-[20%] md:px-4 md:text-left text-center text-2xl font-extrabold;
+    @apply md:text-left text-center text-2xl font-extrabold;
   }
 
   .section-title {
