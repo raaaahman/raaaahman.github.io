@@ -24,7 +24,6 @@ export default function FAIRIEProject() {
   return (<Layout className="relative lg:flex lg:flex-wrap md:overflow-x-hidden md:overflow-y-visible">
     <Head>
       <title>F.A.I.R.I.E. | Sylvain Schellenberger</title>
-      <link rel="icon" href="/favicon.ico"/>
       <meta
         name="description"
         content="An interactive fiction made as a web application, serving as a gateway to a wider Alternate Reality Game."
@@ -34,7 +33,7 @@ export default function FAIRIEProject() {
         content="/images/fairie_desktop_compose-mail.png"
         />
       <meta
-        name="oc:title"
+        name="og:title"
         content="F.A.I.R.I.E., Interactive Fiction in The Index's universe."
       />
     </Head>
@@ -74,6 +73,7 @@ export default function FAIRIEProject() {
               alt="Portable computer."
               role="presentation"
               className="hidden lg:block relative z-10"
+              unoptimized
             />
             <CarouselContainer
               aria-label="Desktop screenshots"
@@ -83,16 +83,19 @@ export default function FAIRIEProject() {
                   className="block w-full h-full object-cover"
                   src={fairieSearch}
                   alt="F.A.I.R.I.E. contains a lot of information on The Index universe, that players can access through search features and pseudo-hacking of websites."
+                  unoptimized
                 />,
                 <Image
                   className="block w-full h-full object-cover"
                   src={fairieMailbox}
                   alt="Players can consult emails they received from various in-game characters as they progress through the stories."
+                  unoptimized
                 />,
                 <Image
                   className="block w-full h-full object-cover"
                   src={fairieEmail}
                   alt="F.A.I.R.I.E. allows players to gather clues through sending fake emails to the in-game characters"
+                  unoptimized
                 /> 
               ]}
             >
@@ -156,6 +159,7 @@ export default function FAIRIEProject() {
                   role="presentation"
                   alt="A mobile phone."
                   className="hidden md:block relative z-10"
+                  unoptimized
                 />
                 <CarouselContainer
                   aria-label="Mobile screenshots"
@@ -165,16 +169,19 @@ export default function FAIRIEProject() {
                       className="block w-full"
                       src={fairieHome}
                       alt="F.A.I.R.I.E. simulates an AI companion to assist players through their journey in The Index franchise."
+                      unoptimized
                     />,
                     <Image
                       className="block w-full"
                       src={fairieTerminal}
                       alt="F.A.I.R.I.E. let players immerse themselves as hackers through its own command line interface, where they can search for clues using commands like 'search' or 'connect'."
+                      unoptimized
                     />,
                     <Image
                       className="block w-full"
                       src={fairiePhone}
                       alt="Players can use phone numbers they might have gathered through the app, or any other source from the Index universe to listen phone records from the in-world characters."
+                      unoptimized
                     />
                   ]}
                 >
