@@ -8,19 +8,20 @@ export default function Card({ children, className, ...props }) {
   </article>)
 }
 
-export function CardHeader({ title, cover }) {
- return (<header className="relative h-[16rem] lg:h-[24rem]">
+export function CardHeader({ title, cover, ...props }) {
+ return (<header className="relative min-h-[18rem]">
     <Image
       alt={title}
-      src={'/images/' + cover}
+      src={cover}
       fill
       className="object-cover object-center rounded-3xl"
+      {...props}
     />
   </header>)
 }
 
 export function CardContent({ children }) {
-  return (<div className="px-8 py-2 flex flex-row">
+  return (<div className="p-2 flex flex-row">
     {children}
   </div>)
 }
