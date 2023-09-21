@@ -1,34 +1,15 @@
-import { useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import Script from 'next/script'
+import { AcademicCapIcon, PuzzlePieceIcon } from '@heroicons/react/24/solid'
 
 import Layout from '../components/Layout'
-import { getSortedProjectsData } from '../utils/projects'
 import Card, { CardHeader, CardContent } from '../components/Card'
-import CategoryIcon from '../components/CategoryIcon'
 import SkillList from '../components/SkillList'
-import { useMediaQuery } from '../hooks/useMediaQuery'
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../tailwind.config'
 import ShaderCanvas from '../components/ShaderCanvas'
+import fairieSearchResult from '../public/images/fairie_desktop_search-result.png'
+import phaser360 from '../public/images/phaser-360_003.png'
 
-export async function getStaticProps() {
-  const allProjectsData = getSortedProjectsData()
-
-  return {
-    props: {
-      allProjectsData
-    }
-  }
-}
-
-export default function HomePage({ allProjectsData }) {
-  const canvasRef = useRef()
-
-  const config = resolveConfig(tailwindConfig)
-  const md = useMediaQuery(`(min-width: ${config.theme.screens.md})`)
-
+export default function HomePage() {
   return (<Layout home className="lg:flex lg:flex-wrap">
     <Head>
       <title>React / Next + Firebase Developer | Sylvain Schellenberger</title>
@@ -48,7 +29,7 @@ export default function HomePage({ allProjectsData }) {
     </Head>
     <section id="intro" className="relative z-[5] top-left-section">
       <span className="block text-lg text-right md:text-left">Sylvain Schellenberger</span>
-      <h1 className="page-title">Freelance React / Next Developer</h1>
+      <h1 className="page-title">Freelance React Developer & Creative Coder</h1>
       <p className="text-justify mb-4">
         Are you looking for a <strong>front-end developer</strong> with an itch for innovation and a thirst for <strong>creative coding</strong>? Look no further!</p>
       <p className="text-justify">
@@ -59,6 +40,7 @@ export default function HomePage({ allProjectsData }) {
       <h2 className="top-right-section__title">Skills</h2>
       <SkillList 
         skills={[
+          { name: 'GLSL', value: 5 },
           { name: 'Three.js', value: 15 },
           { name: 'Tailwind CSS', value: 35 },
           { name: 'Phaser', value: 65 },
@@ -74,30 +56,42 @@ export default function HomePage({ allProjectsData }) {
     <section id="projects" className="relative z-[5] lg:flex-none w-full mb-8">
       <h2 className="section-title">Projects</h2>
       <div className="lg:flex lg:flex-wrap lg:items-stretch">
-        {allProjectsData.map(({ id, title, cover, category, description }) => (
-          <Link 
-            href={`/projects/${id}`}
-            className="block xl:flex-1 xl:basis-[40%] xl:[&:not(:first-child)]:ml-4 xl:[&:not(:last-child)]:mr-4 mb-8"
-            key={title}
-          >
-            <Card key={id} className="text-inherit h-full">
-              <CardHeader 
-                cover={cover}
-                title={title}
-              />
-              <CardContent>
-                <CategoryIcon 
-                  category={category}
-                  className="hidden lg:block w-8 h-8 text-white-weak mr-4 self-center"
-                />
-                <div>
-                  <h3 className="text-white-medium text-lg font-semibold">{title}</h3>
-                  <p className="text-white-weak">{description}</p>
-                </div> 
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
+        <Link 
+          href="/projects/fairie"
+          className="block xl:flex-1 xl:basis-[40%] xl:[&:not(:first-child)]:ml-4 xl:[&:not(:last-child)]:mr-4 mb-8"
+        >
+          <Card className="text-inherit h-full">
+            <CardHeader
+              cover={fairieSearchResult}
+              title="F.A.I.R.I.E."
+            />
+            <CardContent>
+              <PuzzlePieceIcon title="Entertainment" className="hidden lg:block lg:basis-10 lg:mx-4"/>
+              <div>
+                <h3 className="text-white-medium text-lg font-semibold">Dev In Details</h3>
+                <p className="text-white-weak">A coder's blog about the playful implementation of serious front-end development concepts.</p>
+              </div> 
+            </CardContent>
+          </Card>
+        </Link>
+        <Link 
+          href="/projects/devindetails"
+          className="block xl:flex-1 xl:basis-[40%] xl:[&:not(:first-child)]:ml-4 xl:[&:not(:last-child)]:mr-4 mb-8"
+        >
+          <Card className="text-inherit h-full">
+            <CardHeader
+              cover={phaser360}
+              title="Dev In Details"
+            />
+            <CardContent>
+              <AcademicCapIcon title="Education" className="hidden lg:block lg:basis-12 lg:mx-4"/>
+              <div>
+                <h3 className="text-white-medium text-lg font-semibold">F.A.I.R.I.E.</h3>
+                <p className="text-white-weak">F.A.I.R.I.E. is an interactive fiction that serves as a companion app for an alternate reality game set in the story-world of The Index.</p>
+              </div> 
+            </CardContent>
+          </Card>
+        </Link>
       </div>
     </section>
     <ShaderCanvas
