@@ -21,7 +21,8 @@ module.exports = {
       },
       blue: {
         deeper: '#000588',
-        deep: '#1c00a4'
+        deep: '#1c00a4',
+        light: '#23b5ed'
       },
       purple: {
         bright: '#8504EA'

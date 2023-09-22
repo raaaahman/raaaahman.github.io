@@ -53,7 +53,7 @@ export default function Timeline({ steps, className, headings = 'h3', ...props }
 
 function TimelineStep({ children, ...props }) {
   return (<li 
-    className="flex group"
+    className="flex group m-auto w-fit lg:w-auto lg:ml-0"
     {...props}
   >
     {children}
@@ -62,15 +62,15 @@ function TimelineStep({ children, ...props }) {
 
 function TimelineStepContent({ children, ...props }) {
   return (<div
-    className="basis-1/2 shrink-0 group-even:order-1 order-2 group-odd:border-l-2 group-odd:border-blue-light group-even:text-right flex group-odd:justify-start justify-end items-center py-4"
+    className="lg:basis-1/2 shrink-0 group-even:order-1 order-2 border-l-2 lg:group-even:border-l-0 border-blue-light group-even:text-right flex group-odd:justify-start justify-end items-center py-4"
   >
     <div
-      className="inline-flex group-odd:-ml-4 group-even:order-1 -mr-4 relative z-10 h-8 w-8 items-center justify-center bg-blue-light rounded-full text-white-strong"
+      className="inline-flex  lg:group-even:order-1 lg:group-odd:-ml-4 lg:group-even:-mr-4 lg:group-odd;ml-0 -ml-4 relative z-10 h-8 w-8 items-center justify-center bg-blue-light rounded-full text-white-strong"
     >
       <CalendarIcon role="presentation" className="w-6 h-6" />
     </div>
     <div
-      className="mx-6 max-w-md rounded-lg bg-grey-darker bg-gradient-to-b from-white-5 p-6 shadow-md shadow-black-10 border border-white-10 align-middle text-left"
+      className="mx-6 lg:group-even:mr-10 max-w-md rounded-lg bg-grey-darker bg-gradient-to-b from-white-5 p-6 shadow-md shadow-black-10 border border-white-10 align-middle text-left"
       {...props}
     >
       {children}
@@ -80,9 +80,11 @@ function TimelineStepContent({ children, ...props }) {
 
 function TimelineStepPicture({ children, ...props }) {
   return (<figure
-    className="basis-1/2 shrink-0 group-odd:order-1 order-2 group-even:border-l-2 group-even:border-blue-light px-6 flex items-center justify-center py-4"
+    className="hidden lg:flex basis-1/2 shrink-0 group-odd:order-1 order-2 group-even:border-l-2 group-even:border-blue-light items-center group-even:justify-start group-odd:justify-end py-4"
     {...props}
   >
-    {children}
+    <div className="max-w-md group-even:ml-10 group-odd:mr-10">
+      {children}
+    </div>
   </figure>)
 }
