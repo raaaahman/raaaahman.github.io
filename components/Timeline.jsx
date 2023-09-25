@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { CalendarIcon } from '@heroicons/react/24/solid'
 
 import DateDisplay from './Date'
+import AnimateOnScroll from './AnimateOnScroll'
 
 export default function Timeline({ steps, className, headings = 'h3', ...props }) {
   const TimelineStepHeading = useMemo(() => {
@@ -69,22 +70,32 @@ function TimelineStepContent({ children, ...props }) {
     >
       <CalendarIcon role="presentation" className="w-6 h-6" />
     </div>
-    <div
-      className="mx-6 lg:group-even:mr-10 max-w-md rounded-lg bg-grey-darker bg-gradient-to-b from-white-5 p-6 shadow-md shadow-black-10 border border-white-10 align-middle text-left"
+    <AnimateOnScroll
+      threshold={0.33}
+      className="ms-6 lg:group-even:mr-10 max-w-md rounded-lg bg-grey-darker bg-gradient-to-b from-white-5 p-6 shadow-md shadow-black-10 border border-white-10 align-middle text-left motion-safe:[perspective:240px] motion-safe:transition-all motion-safe:duration-[600ms] group-even:origin-right group-odd:origin-left"
+      idleClassName="motion-safe:[transform:rotate3d(0,1,0,-90deg)] motion-safe:opacity-0"
+      animateClassName="[transform:rotate3d(0,1,0,0deg)] opacity-100"
       {...props}
     >
       {children}
-    </div>
+    </AnimateOnScroll>
+    
   </div>)
 }
 
 function TimelineStepPicture({ children, ...props }) {
-  return (<figure
+  return (
+  <figure
     className="hidden lg:flex basis-1/2 shrink-0 group-odd:order-1 order-2 group-even:border-l-2 group-even:border-blue-light items-center group-even:justify-start group-odd:justify-end py-4"
     {...props}
   >
-    <div className="max-w-md group-even:ml-10 group-odd:mr-10">
+    <AnimateOnScroll
+      threshold={0.33}
+      className="max-w-md group-even:ml-10 group-odd:mr-10 motion-safe:[perspective:240px] motion-safe:transition-all motion-safe:duration-[600ms] group-odd:origin-right group-even:origin-left"
+      idleClassName="motion-safe:[transform:rotate3d(0,1,0,-90deg)] motion-safe:opacity-0"
+      animateClassName="[transform:rotate3d(0,1,0,0deg)] opacity-100"
+    >
       {children}
-    </div>
+    </AnimateOnScroll>
   </figure>)
 }
