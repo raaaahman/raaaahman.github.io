@@ -51,7 +51,6 @@ export default function DevInDetails() {
             src={devindetailsH5P}
             alt="An exercise in the first blog post to use H5P activities."
             placeholder="blur"
-            unoptimize
           />)
         },
         {
@@ -60,7 +59,8 @@ export default function DevInDetails() {
           description: 'As I went back into IT studies, I decided to create a blog to document my learning and experiments. Since I was already familiar with it, I chose WordPress as a Content Management System.',
           cover: () => (<Image
             src={devindetailsCreation}
-            alt="A blog post about the Git software, on of the first tutorials of the blog."  
+            alt="A blog post about the Git software, on of the first tutorials of the blog."
+            placeholder="blur"
           />)
         }
       ]} />

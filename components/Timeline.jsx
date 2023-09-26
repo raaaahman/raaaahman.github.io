@@ -42,7 +42,6 @@ export default function Timeline({ steps, className, headings = 'h3', ...props }
               alt={title}
               width={620}
               height={451}
-              unoptimized
             />)
             : null
           }
