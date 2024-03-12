@@ -15,6 +15,7 @@ export default function DropdownToggle({ children, renderOpen, renderClosed, ren
 
   return (<button
     onClick={handleClick}
+    aria-expanded={isOpen}
     {...props}
   >
     {typeof render === 'function'

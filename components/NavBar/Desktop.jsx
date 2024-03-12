@@ -15,14 +15,13 @@ export default function NavbarDesktop({ links, groups, className, ...props}) {
       {...props}
     >
       {links.length > 0
-        ? <LinksGroup links={links} activeLink={pathname} />
+        ? <li><LinksGroup links={links} activeLink={pathname} /></li>
         : null
       }
       {groups.length > 0
-        ? groups.map((links, index) => (<Fragment key={'group-' + index}>
-          {index > 0 ? <hr className="border-top border-grey-400 w-8 my-2 mx-auto"/> : null}
+        ? groups.map((links, index) => (<li key={'group-' + index} className={'list-none' + (index > 0 ? " before:content-[' '] before:block before:border-t before:border-grey-400 before:w-8 before:my-2 before:mx-auto" : '')}>
           <LinksGroup links={links} activeLink={pathname} />
-        </Fragment>))
+        </li>))
         : null
       }
     </ul>
@@ -30,7 +29,7 @@ export default function NavbarDesktop({ links, groups, className, ...props}) {
 }
 
 function LinksGroup({ links, activeLink }) {
-  return links.map(({ to, Icon, title, items, external = false }) => {
+  return (<ul className="list-none">{links.map(({ to, Icon, title, items, external = false }) => {
     const isActiveElement = activeLink === to || items?.find(item => activeLink === item.to)
 
     const linkClassName = 'flex flex-col justify-center items-center relative Z-10 ' + (isActiveElement
@@ -45,10 +44,9 @@ function LinksGroup({ links, activeLink }) {
         >
           <DropdownToggle
             className={linkClassName}
-            tabIndex={-1}
+            aria-label={title}
           >
             <Icon
-              title={title}
               className={isActiveElement
                 ? "bock w-6 h-6 text-white-strong"
                 : "block w-4 h-4 text-grey-400"} 
@@ -98,6 +96,6 @@ function LinksGroup({ links, activeLink }) {
         </Link>)
       } 
     </li>)
-  })
+  })}</ul>)
 }
 
