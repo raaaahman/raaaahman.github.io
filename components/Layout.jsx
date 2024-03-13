@@ -32,6 +32,10 @@ export default function Layout({ children, home, className, ...props }) {
                       title: "Dev In Details",
                     },
                     {
+                      to: "/projects/web-development-lessons",
+                      title: "Web Development Lessons",
+                    },
+                    {
                       to: "/projects/sunny-new-world",
                       title: "Sunny New World",
                     },

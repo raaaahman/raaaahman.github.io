@@ -128,7 +128,7 @@ export default function HomePage() {
           </Link>
 
           <Link
-            href="/"
+            href="/projects/web-development-lessons"
             className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
           >
             <Card className="text-inherit h-full">
