@@ -8,6 +8,8 @@ import SkillList from '../components/SkillList'
 import ShaderCanvas from '../components/ShaderCanvas'
 import fairieSearchResult from '../public/images/fairie_desktop_search-result.png'
 import phaser360 from '../public/images/phaser-360_003.png'
+import webDevelopmentLessons from "../public/images/web-development-lessons-001.png";
+import sunnyNewWorldLogo from "../public/images/sunny-new-world-logo.svg";
 
 export default function HomePage() {
   return (
@@ -78,16 +80,16 @@ export default function HomePage() {
         <div className="lg:flex lg:flex-wrap lg:items-stretch">
           <Link
             href="/projects/fairie"
-            className="block xl:flex-1 xl:basis-[40%] xl:[&:not(:first-child)]:ml-4 xl:[&:not(:last-child)]:mr-4 mb-8"
+            className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
           >
             <Card className="text-inherit h-full">
               <CardHeader cover={fairieSearchResult} title="F.A.I.R.I.E." />
               <CardContent>
                 <PuzzlePieceIcon
                   title="Entertainment"
-                  className="hidden lg:block lg:basis-10 lg:mx-4"
+                  className="hidden lg:block lg:w-10 lg:mx-4 lg:shrink-0"
                 />
-                <div>
+                <div className="h-full flex flex-col justify-center">
                   <h3 className="text-white-medium text-lg font-semibold">
                     F.A.I.R.I.E.
                   </h3>
@@ -100,24 +102,79 @@ export default function HomePage() {
               </CardContent>
             </Card>
           </Link>
+
           <Link
             href="/projects/devindetails"
-            className="block xl:flex-1 xl:basis-[40%] xl:[&:not(:first-child)]:ml-4 xl:[&:not(:last-child)]:mr-4 mb-8"
+            className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
           >
             <Card className="text-inherit h-full">
               <CardHeader cover={phaser360} title="Dev In Details" />
               <CardContent>
                 <AcademicCapIcon
                   title="Education"
-                  className="hidden lg:block lg:basis-12 lg:mx-4"
+                  className="hidden lg:block lg:w-10 lg:mx-4 lg:shrink-0"
                 />
-                <div>
+                <div className="h-full flex flex-col justify-center">
                   <h3 className="text-white-medium text-lg font-semibold">
                     Dev In Details
                   </h3>
                   <p className="text-white-weak">
                     A coder's blog about the playful implementation of serious
                     front-end development concepts.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link
+            href="/"
+            className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
+          >
+            <Card className="text-inherit h-full">
+              <CardHeader
+                cover={webDevelopmentLessons}
+                title="Web Development Lessons"
+              />
+              <CardContent>
+                <AcademicCapIcon
+                  title="Education"
+                  className="hidden lg:block lg:w-10 lg:mx-4 lg:shrink-0"
+                />
+                <div className="h-full flex flex-col justify-center">
+                  <h3 className="text-white-medium text-lg font-semibold">
+                    Web Development Lessons
+                  </h3>
+                  <p className="text-white-weak">
+                    Lessons given during live lectures about web development.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link
+            href="/projects/sunny-new-world"
+            className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
+          >
+            <Card className="text-inherit h-full">
+              <CardHeader
+                cover={sunnyNewWorldLogo}
+                title="Sunny New World"
+                className={`object-contain object-center rounded-3xl bg-gradient-to-tl from-[rgba(96,117,224,0.55)] to-[rgba(207,196,143,0.55)]`}
+              />
+              <CardContent>
+                <PuzzlePieceIcon
+                  title="Entertainment"
+                  className="hidden lg:block lg:w-12 lg:mx-4"
+                />
+                <div className="h-full flex flex-col justify-center">
+                  <h3 className="text-white-medium text-lg font-semibold">
+                    Sunny New World
+                  </h3>
+                  <p className="text-white-weak">
+                    Cooperative multiplayer game about rebuilding civilization
+                    with renewable energy.
                   </p>
                 </div>
               </CardContent>
