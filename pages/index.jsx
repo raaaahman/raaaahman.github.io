@@ -1,27 +1,27 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { AcademicCapIcon, PuzzlePieceIcon } from '@heroicons/react/24/solid'
 
 import Layout from '../components/Layout'
 import Card, { CardHeader, CardContent } from '../components/Card'
 import SkillList from '../components/SkillList'
 import ShaderCanvas from '../components/ShaderCanvas'
 import fairieSearchResult from '../public/images/fairie_desktop_search-result.png'
-import phaser360 from '../public/images/phaser-360_003.png'
-import webDevelopmentLessons from "../public/images/web-development-lessons-001.png";
-import sunnyNewWorldLogo from "../public/images/sunny-new-world-logo.svg";
+import sunnyNewWorldLogo from '../public/images/sunny-new-world-logo.svg'
+import hexpandCover from '../public/images/hexpand_preview.png'
+import themindplexRoom from '../public/images/themindplex_room.png'
+import hackbackCover from '../public/images/hackback_cover.jpg'
 
 export default function HomePage() {
   return (
     <Layout home className="lg:flex lg:flex-wrap">
       <Head>
         <title>
-          React / Next + Firebase Developer | Sylvain Schellenberger
+          Browser Games developer | Sylvain Schellenberger
         </title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Front-end developer with a focus on interactive experiences."
+          content="Front-end developer with a focus on interactive experiences and games."
         />
         <meta
           property="og:image"
@@ -29,7 +29,7 @@ export default function HomePage() {
         />
         <meta
           name="oc:title"
-          content="Sylvain Schellenberger, React Developer / Creative Coder"
+          content="Sylvain Schellenberger, React / Phaser Developer"
         />
       </Head>
       <section id="intro" className="relative z-[5] top-left-section">
@@ -37,38 +37,29 @@ export default function HomePage() {
           Sylvain Schellenberger
         </span>
         <h1 className="page-title">
-          Freelance React Developer & Creative Coder
+          Brower Games Developer
         </h1>
         <p className="text-justify mb-4">
-          Are you looking for a <strong>front-end developer</strong> with an
-          itch for innovation and a thirst for <strong>creative coding</strong>?
-          Look no further!
+          Do you want to create highly engaging <strong>interactive experiences</strong> and <strong>games</strong> that run in the browser?
+          I can build it for you!
         </p>
-        <p className="text-justify">
-          From <strong>crafting visually striking websites</strong> to{" "}
-          <strong>building interactive games</strong>, I thrive on pushing the
-          boundaries of web development. With a solid foundation in front-end
-          technologies such as <em>TypeScript</em> and <em>React</em>, combined
-          to an eagerness to learn graphical libraries like <em>Phaser</em> or{" "}
-          <em>Three.js</em>, I can transform your ideas into{" "}
-          <strong>captivating digital experiences</strong> that users won't soon
-          forget.
+        <p className="text-justify"> 
+          With a solid foundation in <strong>front-end</strong> technologies and my passion for <strong>game development</strong>, I can mix and match libraries like <em>React</em>, <em>Zustand</em>, <em>Phaser</em> and <em>Three.JS</em> to create truly unique experiences: multiplayer games, interactive fictions, alternate reality games... the limit is your imagination!
         </p>
       </section>
       <section className="relative z-[5] top-right-section">
         <h2 className="top-right-section__title">Skills</h2>
         <SkillList
           skills={[
-            { name: "GLSL", value: 5 },
-            { name: "Three.js", value: 15 },
-            { name: "Tailwind CSS", value: 35 },
+            { name: "Three.js", value: 30 },
+            { name: "Tailwind CSS", value: 45 },
             { name: "Phaser", value: 65 },
             { name: "TypeScript", value: 75 },
             { name: "JavaScript", value: 85 },
             { name: "React", value: 80 },
-            { name: "FireBase", value: 55 },
-            { name: "Redux", value: 35 },
-            { name: "Next.js", value: 20 },
+            { name: "FireBase", value: 40 },
+            { name: "Zustand", value: 35 },
+            { name: "Next.js", value: 15 },
           ]}
         />
       </section>
@@ -79,48 +70,69 @@ export default function HomePage() {
         <h2 className="section-title">Projects</h2>
         <div className="lg:flex lg:flex-wrap lg:items-stretch">
           <Link
+            href="/projects/the-mindplex"
+            className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
+          >
+            <Card className="text-inherit h-full">
+              <CardHeader cover={themindplexRoom} title="The Mindplex" />
+              <CardContent>
+                <div className="h-full flex flex-col justify-center">
+                  <h3 className="text-white-medium text-lg font-semibold">
+                    The Mindplex
+                  </h3>
+                  <p className="text-white-weak">
+                    The Mindplex is an <em>Alternate Reality Game</em> that develops the universe of the musician DHeusta.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link
             href="/projects/fairie"
             className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
           >
             <Card className="text-inherit h-full">
               <CardHeader cover={fairieSearchResult} title="F.A.I.R.I.E." />
               <CardContent>
-                <PuzzlePieceIcon
-                  title="Entertainment"
-                  className="hidden lg:block lg:w-10 lg:mx-4 lg:shrink-0"
-                />
                 <div className="h-full flex flex-col justify-center">
                   <h3 className="text-white-medium text-lg font-semibold">
                     F.A.I.R.I.E.
                   </h3>
                   <p className="text-white-weak">
                     F.A.I.R.I.E. is an interactive fiction that serves as a
-                    companion app for an alternate reality game set in the
+                    companion app for an <em>Alternate Reality Game</em> set in the
                     story-world of The Index.
                   </p>
                 </div>
               </CardContent>
             </Card>
           </Link>
-
+        </div>
+      </section>
+      <section 
+        id="game-jams"
+        className="relative z-[5] lg:flex-none w-full mb-8"
+      >
+        <h2 className="section-title">Game Jams</h2>
+        <div className="lg:flex lg:flex-wrap lg:items-stretch">
           <Link
-            href="/projects/devindetails"
-            className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
+            href="/projects/hackback"
+            className="block xl:flex-1 xl:basis-[30%] mb-8"
           >
             <Card className="text-inherit h-full">
-              <CardHeader cover={phaser360} title="Dev In Details" />
+              <CardHeader
+                cover={hackbackCover}
+                title="Hack Back"
+                className={`object-contain object-center rounded-3xl bg-gradient-to-tl from-[rgba(96,117,224,0.55)] to-[rgba(207,196,143,0.55)]`}
+              />
               <CardContent>
-                <AcademicCapIcon
-                  title="Education"
-                  className="hidden lg:block lg:w-10 lg:mx-4 lg:shrink-0"
-                />
                 <div className="h-full flex flex-col justify-center">
                   <h3 className="text-white-medium text-lg font-semibold">
-                    Dev In Details
+                    Hack Back
                   </h3>
                   <p className="text-white-weak">
-                    A coder's blog about the playful implementation of serious
-                    front-end development concepts.
+                    An Interactive Fiction about high school teenagers trying to uncover a techno-conspiracy happening on their school provided devices.
                   </p>
                 </div>
               </CardContent>
@@ -128,25 +140,22 @@ export default function HomePage() {
           </Link>
 
           <Link
-            href="/projects/web-development-lessons"
-            className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
+            href="/projects/hexpand"
+            className="block xl:flex-1 xl:basis-[30%] xl:mx-4 mb-8"
           >
             <Card className="text-inherit h-full">
               <CardHeader
-                cover={webDevelopmentLessons}
-                title="Web Development Lessons"
+                cover={hexpandCover}
+                title="Sunny New World"
+                className={`object-contain object-center rounded-3xl bg-gradient-to-tl from-[rgba(96,117,224,0.55)] to-[rgba(207,196,143,0.55)]`}
               />
               <CardContent>
-                <AcademicCapIcon
-                  title="Education"
-                  className="hidden lg:block lg:w-10 lg:mx-4 lg:shrink-0"
-                />
                 <div className="h-full flex flex-col justify-center">
                   <h3 className="text-white-medium text-lg font-semibold">
-                    Web Development Lessons
+                    Hexpand
                   </h3>
                   <p className="text-white-weak">
-                    Lessons given during live lectures about web development.
+                    Simple strategy game about territorial conquest for two players.
                   </p>
                 </div>
               </CardContent>
@@ -155,7 +164,7 @@ export default function HomePage() {
 
           <Link
             href="/projects/sunny-new-world"
-            className="block xl:flex-1 xl:basis-[40%] xl:even:ml-4 xl:odd:mr-4 mb-8"
+            className="block xl:flex-1 xl:basis-[30%] mb-8"
           >
             <Card className="text-inherit h-full">
               <CardHeader
@@ -164,10 +173,6 @@ export default function HomePage() {
                 className={`object-contain object-center rounded-3xl bg-gradient-to-tl from-[rgba(96,117,224,0.55)] to-[rgba(207,196,143,0.55)]`}
               />
               <CardContent>
-                <PuzzlePieceIcon
-                  title="Entertainment"
-                  className="hidden lg:block lg:w-12 lg:mx-4"
-                />
                 <div className="h-full flex flex-col justify-center">
                   <h3 className="text-white-medium text-lg font-semibold">
                     Sunny New World

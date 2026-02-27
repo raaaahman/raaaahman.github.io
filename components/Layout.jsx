@@ -24,16 +24,20 @@ export default function Layout({ children, home, className, ...props }) {
                   to: "/projects/",
                   items: [
                     {
+                      to: "/projects/the-mindplex",
+                      title: "The Mindplex"
+                    },
+                    {
                       to: "/projects/fairie",
                       title: "F.A.I.R.I.E.",
                     },
                     {
-                      to: "/projects/devindetails",
-                      title: "Dev In Details",
+                      to: "/projects/hackback",
+                      title: "Hack Back",
                     },
                     {
-                      to: "/projects/web-development-lessons",
-                      title: "Web Development Lessons",
+                      to: "/projects/hexpand",
+                      title: "Hexpand",
                     },
                     {
                       to: "/projects/sunny-new-world",
