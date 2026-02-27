@@ -17,35 +17,36 @@ import CarouselPickerControls from "../../components/Carousel/CarouselPickerCont
 import AnimateOnScroll from "../../components/AnimateOnScroll";
 import CarouselRotationControl from "../../components/Carousel/CarouselRotationControl";
 import CarouselOuterContainer from "../../components/Carousel/CarouselOuterContainer";
+import hexpandGame001 from "../../public/images/hexpand_game001.png";
+import hexpandGame002 from "../../public/images/hexpand_game002.png";
+import hexpandGame003 from "../../public/images/hexpand_game003.png";
 
 export default function SunyNewWorldProject() {
   return (
     <Layout className="relative lg:flex lg:flex-wrap md:overflow-x-hidden md:overflow-y-visible">
       <Head>
-        <title>Sunny New World | Sylvain Schellenberger</title>
+        <title>Hexpand | Sylvain Schellenberger</title>
         <meta
           name="description"
-          content="A cooperative multiplayer game about rebuilding civilization with renewable energy."
+          content="A simple mobile strategy game of territorial conquest, running on the Rune application."
         />
-        <meta property="og:image" content="/images/sunny-new-world-002.png" />
+        <meta property="og:image" content="/images/hexpand_preview.png" />
         <meta
           name="og:title"
-          content="Sunny New World, a cooperative multiplayer game."
+          content="Hexpand, a simple strategy game."
         />
       </Head>
 
       <section id="intro" className="relative z-[5] top-left-section">
-        <h1 className="page-title">Sunny New World</h1>
+        <h1 className="page-title">Hexpand</h1>
         <p className="text-justify mb-4">
           The game was made during{" "}
-          <a href="https://reactjam.com/">ReactJam Winter 2023</a> and published
+          <a href="https://reactjam.com/">ReactJam Fall 2024</a> and published
           on the <a href="https://developers.rune.ai/blog">Rune</a> platform.
         </p>
         <p className="text-justify mb-4">
-          Sunny New World is a cooperative <strong>multiplayer game</strong> in
-          which players rebuild a civilization by carefully placing landscapes
-          and structures to harvest renewable energy, while avoiding
-          accumulating too much pollution.
+          Hexpand is a simple <strong>strategy game</strong> in
+          which two players battle to conquer most land before they run out of pawns.
         </p>
       </section>
       <section className="relative z-[5] top-right-section">
@@ -55,11 +56,11 @@ export default function SunyNewWorldProject() {
         <SkillList
           skills={[
             { name: "TypeScript", value: 75 },
-            { name: "TailwindCSS", value: 45 },
             { name: "React", value: 55 },
             { name: "React Three Fiber", value: 65 },
             { name: "Rune SDK", value: 85 },
-            { name: "Vite", value: 35 },
+            { name: "Vite", value: 25 },
+            { name: "Vitest", value: 35 }
           ]}
         />
       </section>
@@ -72,19 +73,14 @@ export default function SunyNewWorldProject() {
             animateClassName="motion-safe:md:[&>*]:animate-slide-in"
           >
             <h2 className="text-2xl text-white-weak mb-8">
-              <strong>Sunny New World</strong> is played from 2 to 4 players.
-              Each player draw tiles that they can place adjacent to existing
-              tiles during they turn.
+              <strong>Hexpand</strong> is a two players game.
             </h2>
             <p className="mb-4">
-              Since they might have tiles that produces resources the other
-              player may need, they should collaborate to place these tiles
-              where they are the most needed.
+              Players alternate turns to place groups of pawns. 
+              Pawn groups conquer the smaller groups adjacent to the tile they land on.
             </p>
             <p>
-              Each placed tile can generate or remove pollution, if too much
-              pollution is accumulated, then it's game over for everyone. Score
-              depends on tiles like human habitats, forest and oceans.
+              When no players have pawns anymore, the game ends, and each tile is worth points, the closer to the center of the board, the more points!
             </p>
           </AnimateOnScroll>
         </div>
@@ -110,20 +106,20 @@ export default function SunyNewWorldProject() {
                     items={[
                       <Image
                         className="block w-full"
-                        src={sunnyNewWorld001}
-                        alt="Players starts with a single habitat tile."
+                        src={hexpandGame001}
+                        alt="Players alternate turns to place pawns."
                         unoptimized
                       />,
                       <Image
                         className="block w-full"
-                        src={sunnyNewWorld002}
-                        alt="They place landscapes and structures tiles adjacent to the existing tiles."
+                        src={hexpandGame002}
+                        alt="Pawn groups conquer the smaller groups adjacent to the tile they land on."
                         unoptimized
                       />,
                       <Image
                         className="block w-full"
-                        src={sunnyNewWorld003}
-                        alt="As they place more and more tiles, pollution starts to accumulate."
+                        src={hexpandGame003}
+                        alt="When no players have pawns anymore, the game ends."
                         unoptimized
                       />,
                     ]}
@@ -169,9 +165,7 @@ export default function SunyNewWorldProject() {
             synchronization and optimized rendering of complex 3D scenes.
           </p>
           <p>
-            The UI is made with <strong>React</strong> and{" "}
-            <strong>Tailwind CSS</strong>, which allowed for fast iteration in
-            the context of a tightly scheduled <em>game jam</em>.
+            The UI is made with <strong>React Three UI Kit</strong> so it renders in WebGL as well, just like the game elements.
           </p>
         </AnimateOnScroll>
       </section>

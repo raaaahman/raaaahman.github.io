@@ -5,12 +5,6 @@ import SkillList from '../../components/SkillList'
 import Layout from '../../components/Layout'
 import laptopFrame from '../../public/images/laptop-frame.png'
 import mobileFrame from '../../public/images/mobile-frame.png'
-import fairieHome from '../../public/images/fairie_mobile_home.png'
-import fairieTerminal from '../../public/images/fairie_mobile_terminal.png'
-import fairiePhone from '../../public/images/fairie_mobile_phone.png'
-import fairieMailbox from '../../public/images/fairie_desktop_mailbox.png'
-import fairieEmail  from '../../public/images/fairie_desktop_compose-mail.png'
-import fairieSearch from '../../public/images/fairie_desktop_search-result.png'
 import CarouselContainer from '../../components/Carousel/CarouselContainer'
 import { CarouselControlNext, CarouselControlPrev } from '../../components/Carousel/CarouselControls'
 import CarouselContextProvider from '../../components/Carousel/CarouselContext'
@@ -18,40 +12,48 @@ import CarouselPickerControls from '../../components/Carousel/CarouselPickerCont
 import AnimateOnScroll from '../../components/AnimateOnScroll'
 import CarouselRotationControl from '../../components/Carousel/CarouselRotationControl'
 import CarouselOuterContainer from '../../components/Carousel/CarouselOuterContainer'
+import hackbackHomeScreen from '../../public/images/hackback_homescreen.png'
+import hackbackWhisperMeeting from '../../public/images/hackback_whispermeeting.png'
+import hackbackFlemmyNFT from '../../public/images/hackback_flemmynft.png'
+import hackbackWhisperNFT from '../../public/images/hackback_whispernft.png'
 
-export default function FAIRIEProject() {
+export default function HackBackProject() {
   return (<Layout className="relative lg:flex lg:flex-wrap md:overflow-x-hidden md:overflow-y-visible">
     <Head>
-      <title>F.A.I.R.I.E. | Sylvain Schellenberger</title>
+      <title>Hack Back | Sylvain Schellenberger</title>
       <meta
         name="description"
-        content="An interactive fiction made as a web application, serving as a gateway to a wider Alternate Reality Game."
+        content="An interactive fiction about techno-conspiracies and social engineering. Made for GitHub Game Off 2024"
       />
       <meta
         property="og:image"
-        content="/images/fairie_desktop_compose-mail.png"
+        content="/images/hackback_cover.png"
         />
       <meta
         name="og:title"
-        content="F.A.I.R.I.E., Interactive Fiction in The Index's universe."
+        content="Hack Back, Interactive Fiction about High School hackers."
       />
     </Head>
     <section id="intro" className="relative z-[5] top-left-section">
-      <h1 className="page-title">F.A.I.R.I.E.</h1>
-      <p className="text-justify mb-4"><a href="https://theindex.world/">The Index project</a> is an entertainment franchise created by Rustin L. Odom, it is set in a mysterious world where the laws of reality can be bent, broken and exploited through hacking the mind of the masses.</p>
-      <p className="text-justify mb-4">F.A.I.R.I.E. is an <strong>interactive fiction</strong> made as a web application. It is part of a wider <strong>Alternate Reality Game</strong> set in this universe, spanning across multiple medias: a web series, a Discord server, a twitch channel...</p>
+      <h1 className="page-title">Hack Back</h1>
+      <p className="text-justify mb-4"><a href="https://raaaahman.itch.io/hackback">Hack Back</a> is an <strong>interactive fiction</strong> that puts the player in the shoes of Orion Vale, aka Pulse, as he uncovers a techno-consipracy running inside his High School.</p>
+      <p className="mb-4">Its explores themes such as <strong>spying softwares</strong>, <strong>social engineering</strong> and <strong>agentic artificial intelligences</strong> through a smartphone like interface, allowing the player to chat, impersonate, and even blackmail fictional characters.</p>
+      <p>It was made for the <a href="https://github.blog/tag/game-off/">GitHub Game Off 2024</a> game jam and the theme was: Secrets.</p>
     </section>
     <section className="relative z-[5] top-right-section">
       <h2 className="text-2xl text-center font-extrabold">Technologies In Use</h2>
       <SkillList
         skills={[
-          { name: 'TypeScript', value: 70 },
-          { name: 'Styled Components', value: 75 },
-          { name: 'React', value: 80 },
-          { name: 'FireBase', value: 55 },
-          { name: 'Yarn Spinner', value: 45 },
-          { name: 'Node.js', value: 25 },
-          { name: 'OAuh2', value: 15 }
+          { name: 'TailwindCSS', value: 55 },
+          { name: 'DaisyUI', value: 35 },
+          { name: 'TypeScript', value: 80 },
+          { name: 'React', value: 95 },
+          { name: 'YarnBound', value: 75 },
+          { name: 'Valtio', value: 50 },
+          { name: 'TanStack Router', value: 35 },
+          { name: 'Vite', value: 45 },
+          { name: 'Vitest', value: 55 },
+          { name: 'Playwright', value: 15 }
         ]}
       />
     </section>
@@ -80,22 +82,16 @@ export default function FAIRIEProject() {
               items={[
                 <Image
                   className="block w-full h-full object-cover"
-                  src={fairieSearch}
-                  alt="F.A.I.R.I.E. contains a lot of information on The Index universe, that players can access through search features and pseudo-hacking of websites."
+                  src={hackbackHomeScreen}
+                  alt="Hack Back looks like a smartphone / tablet Operating System, with a few social applications on it."
                   unoptimized
                 />,
                 <Image
                   className="block w-full h-full object-cover"
-                  src={fairieMailbox}
-                  alt="Players can consult emails they received from various in-game characters as they progress through the stories."
+                  src={hackbackWhisperMeeting}
+                  alt="The player will be put in touch with shady individuals of dubious motivations... or become one themself!"
                   unoptimized
-                />,
-                <Image
-                  className="block w-full h-full object-cover"
-                  src={fairieEmail}
-                  alt="F.A.I.R.I.E. allows players to gather clues through sending fake emails to the in-game characters"
-                  unoptimized
-                /> 
+                />
               ]}
             >
               <CarouselRotationControl
@@ -129,13 +125,13 @@ export default function FAIRIEProject() {
           animateClassName="motion-safe:md:[&>*]:animate-slide-in"
         >
             <h2 className="text-2xl text-white-weak mb-8">
-              <strong>F.A.I.R.I.E.</strong> is a web application that plays interactive stories.
+              <strong>Hack Back</strong> is an Interactive Fiction built as a web application.
             </h2>
             <p className="mb-4"> 
-              It revolves around the concept of <em>social engineering</em> and allows its users to communicate with the characters from the world of <em>The Index</em> through fake emails and phone calls.
+              It revolves around the concept of <em>social engineering</em> and allows its users to communicate with fictional characters from the Redwood High School through a chat interface.
             </p>
             <p>
-              It also let the players search for clues through a <em>command line interface</em> and hacking inspired mini-games!
+              It also features fake <em>agentic Aterficial Intelligences</em> that can intervene in the discussions.
             </p>
         </AnimateOnScroll>
       </div>
@@ -166,20 +162,14 @@ export default function FAIRIEProject() {
                   items={[
                     <Image
                       className="block w-full"
-                      src={fairieHome}
-                      alt="F.A.I.R.I.E. simulates an AI companion to assist players through their journey in The Index franchise."
+                      src={hackbackFlemmyNFT}
+                      alt="Flemmy is the agentic Artificial Intelligence that the player can ask to do various tasks."
                       unoptimized
                     />,
                     <Image
                       className="block w-full"
-                      src={fairieTerminal}
-                      alt="F.A.I.R.I.E. let players immerse themselves as hackers through its own command line interface, where they can search for clues using commands like 'search' or 'connect'."
-                      unoptimized
-                    />,
-                    <Image
-                      className="block w-full"
-                      src={fairiePhone}
-                      alt="Players can use phone numbers they might have gathered through the app, or any other source from the Index universe to listen phone records from the in-world characters."
+                      src={hackbackWhisperNFT}
+                      alt="As the game progresses, the player gets entangled into several discussions to solve the mystery of the Redwood High School."
                       unoptimized
                     />
                   ]}
@@ -216,12 +206,13 @@ export default function FAIRIEProject() {
         animateClassName="motion-safe:md:[&>*]:animate-slide-in"
       >
         <h2 className="text-2xl font-bold">Technical overview:</h2>
-        <p className="text-xl font-semibold mb-8">Using web technologies to tell stories</p>
+        <p className="text-xl font-semibold mb-8">A chat interface powered by an Interactive Fiction engine.</p>
         <p className="mb-4">
-          F.A.I.R.I.E. is a web application made with <strong>React</strong> and <strong>Styled Components</strong>. It reads stories written in the <a href="https://yarnspinner.dev/">Yarn Spinner</a> syntax that are stored in Google's Cloud Service through the <strong>FireBase</strong> 
+          Hack Back is a web application made with <strong>React</strong> and <strong>Tailwind CSS</strong>. It displays a story written in the <a href="https://yarnspinner.dev/">Yarn Spinner</a> syntax that is processed through the <a href="https://github.com/mnbroatch/yarn-bound">Yarn Bound</a> JavaScript library, maintained by <a href="https://github.com/mnbroatch">Matthew Broatch</a>.
         </p>
+        <p className="mb-4">It uses <a href="https://github.com/pmndrs/valtio">Valtio</a> as a state management library to make a bridge between the <em>mutable state</em> of the YarnBound library and the <em>one way data binding</em> of React applications.</p>
         <p>
-          The project was made possible through the vigilant overseeing of <a href="https://www.swordmonkey.com">Swordmonkey Studios</a>. As well as the <a href="https://github.com/mnbroatch/yarn-bound">Yarn Bound</a> library, maintained by <a href="https://github.com/mnbroatch">Matthew Broatch</a>.
+          The project was made in collaboration with the UX Designer <a href="https://endipons.com/">Endi Pons</a> that took the responsibility of conceiving and writing the whole story.
         </p>
       </AnimateOnScroll>
     </section>
