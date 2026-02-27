@@ -5,12 +5,12 @@ import SkillList from '../../components/SkillList'
 import Layout from '../../components/Layout'
 import laptopFrame from '../../public/images/laptop-frame.png'
 import mobileFrame from '../../public/images/mobile-frame.png'
-import fairieHome from '../../public/images/fairie_mobile_home.png'
-import fairieTerminal from '../../public/images/fairie_mobile_terminal.png'
-import fairiePhone from '../../public/images/fairie_mobile_phone.png'
-import fairieMailbox from '../../public/images/fairie_desktop_mailbox.png'
-import fairieEmail  from '../../public/images/fairie_desktop_compose-mail.png'
-import fairieSearch from '../../public/images/fairie_desktop_search-result.png'
+import fairieHome from '../../public/images/fairieMobile_home.png'
+import fairieTerminal from '../../public/images/fairieMobile_terminal.png'
+import fairiePhone from '../../public/images/fairieMobile_phone.png'
+import fairieMailbox from '../../public/images/fairieMesktop_mailbox.png'
+import fairieEmail  from '../../public/images/fairieDesktop_compose-mail.png'
+import fairieSearch from '../../public/images/fairieDesktop_search-result.png'
 import CarouselContainer from '../../components/Carousel/CarouselContainer'
 import { CarouselControlNext, CarouselControlPrev } from '../../components/Carousel/CarouselControls'
 import CarouselContextProvider from '../../components/Carousel/CarouselContext'
@@ -29,7 +29,7 @@ export default function FAIRIEProject() {
       />
       <meta
         property="og:image"
-        content="/images/fairie_desktop_compose-mail.png"
+        content="/images/fairieDesktop_compose-mail.png"
         />
       <meta
         name="og:title"
