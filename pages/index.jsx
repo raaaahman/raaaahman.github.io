@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import Card, { CardHeader, CardContent } from '../components/Card'
 import SkillList from '../components/SkillList'
-import ShaderCanvas from '../components/ShaderCanvas'
 import fairieSearchResult from '../public/images/fairieDesktop_search-result.png'
 import sunnyNewWorldLogo from '../public/images/sunny-new-world-logo.svg'
 import hexpandCover from '../public/images/hexpand_preview.png'
@@ -187,10 +186,6 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-      <ShaderCanvas
-        fragmentUrl="/scripts/borealis.frag"
-        className="fixed left-0 top-0 w-full min-h-screen"
-      />
     </Layout>
   );
 }
