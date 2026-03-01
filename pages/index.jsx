@@ -4,11 +4,15 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import Card, { CardHeader, CardContent } from '../components/Card'
 import SkillList from '../components/SkillList'
+import { Testimonial } from '../components/Testimonial'
+
 import fairieSearchResult from '../public/images/fairieDesktop_search-result.png'
 import sunnyNewWorldLogo from '../public/images/sunny-new-world-logo.svg'
 import hexpandCover from '../public/images/hexpand_preview.png'
 import themindplexRoom from '../public/images/themindplex_room.png'
 import hackbackCover from '../public/images/hackback_cover.jpg'
+import dbmSpectrumPicture from '../public/images/DHeusta-small.png'
+import studioMightyPicture from '../public/images/StudioMighty_3D_logo-small.jpg'
 
 export default function HomePage() {
   return (
@@ -184,6 +188,42 @@ export default function HomePage() {
               </CardContent>
             </Card>
           </Link>
+        </div>
+      </section>
+      <section>
+        <div className="h-full lg:flex lg:items-stretch lg:justify-center">
+          <Testimonial
+            className="xl:basis-[50%] xl:shrink-1 xl:grow-0"
+            customer={{
+              name: "DHeusta",
+              picture: dbmSpectrumPicture
+            }}
+            link={{
+              href: "https://www.beatsource.com/label/dbmspectrum/149730",
+              label: "beatsource.com/label/DBMSpectrum"
+            }}
+            preline="Working with Sylvain was an absolute pleasure as he committed to what he said he would do and even went above and beyond in certain areas to make sure the vision happened!"
+          >
+            I came to him when a prior dev quit and I needed someone quick, and he came to the job picking up the project quickly and then executing the rest of the tasks needed and finished the project according to the deadline we had as a team. Great communicator and easy to work with too keeping it fun and professional!
+          </Testimonial>
+          <Testimonial
+            className="xl:basis-[50%] xl:shrink-1 xl:grow-0"
+            customer={{
+              name: "Rustin L. Odom",
+              picture: studioMightyPicture
+             }}
+            link={{
+              href: "https://studiomighty.productions/",
+              label: "studiomighty.productions"
+            }}
+            preline="I am proud to write this recommendation for Sylvain. Having collaborated with many developers across various projects, he is absolutely one of my go-to choices."
+          >
+            <span className="block mb-2">I can always count on Sylvain to not only meet project requirements but to consistently add value through exceptional ideas and above-and-beyond effort.</span>
+            
+            <span className="block mb-2">As an example, while managing a large-scale web app and game, I needed to bring on additional developers. Sylvain was at the top of my list, and I couldn't have been more pleased with his work. He not only exceeded expectations but also stepped outside his scope of work to help problem-solve critical deployment issues.</span>
+
+            He's your guy.
+          </Testimonial>
         </div>
       </section>
     </Layout>

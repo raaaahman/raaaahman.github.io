@@ -11,11 +11,14 @@ import CarouselPickerControls from '../../components/Carousel/CarouselPickerCont
 import AnimateOnScroll from '../../components/AnimateOnScroll'
 import CarouselRotationControl from '../../components/Carousel/CarouselRotationControl'
 import CarouselOuterContainer from '../../components/Carousel/CarouselOuterContainer'
+import { Testimonial } from '../../components/Testimonial'
+
 import themindplexRoom from '../../public/images/themindplex_room.png'
 import themindplexTerminal from '../../public/images/themindplex_terminal.png'
 import pixelvision001 from '../../public/images/themindplex_pixelvision001.png'
 import pixelvision002 from '../../public/images/themindplex_pixelvision002.png'
 import pixelvision003 from '../../public/images/themindplex_pixelvision003.png'
+import dbmSpectrumPicture from '../../public/images/DHeusta-small.png'
 
 export default function TheMindplexProject() {
   return (<Layout className="relative lg:flex lg:flex-wrap md:overflow-x-hidden md:overflow-y-visible">
@@ -128,7 +131,7 @@ export default function TheMindplexProject() {
         </AnimateOnScroll>
       </CarouselContextProvider>
     </section>
-    <section className="relative z-[5] my-8 p-4 lg:max-w-4xl lg:mx-auto md:mb-40">
+    <section className="relative z-[5] my-8 p-4 lg:max-w-4xl lg:mx-auto">
       <AnimateOnScroll
         threshold={[0.2]}
         idleClassName="motion-safe:md:[&>*]:idle-slide-in-left"
@@ -143,6 +146,23 @@ export default function TheMindplexProject() {
           It contains a <strong>Phaser</strong> browser game that I worked on the finishing touches and bug resolutions. This is a interactive fiction with images and sounds implemented using only Phaser and JavaScript.
         </p>
       </AnimateOnScroll>
+    </section>
+    <section className="relative z-[5] my-8 p-4 w-full md:mb-40 lg:flex lg:items-stretch lg:justify-center">
+      <h2 className="hidden">Testimonials</h2>
+      <Testimonial
+        className="xl:basis-[50%] xl:shrink-1 xl:grow-0"
+        customer={{
+          name: "DHeusta",
+          picture: dbmSpectrumPicture
+        }}
+        link={{
+          href: "https://www.beatsource.com/label/dbmspectrum/149730",
+          label: "beatsource.com/label/DBMSpectrum"
+        }}
+        preline="Working with Sylvain was an absolute pleasure as he committed to what he said he would do and even went above and beyond in certain areas to make sure the vision happened!"
+      >
+        I came to him when a prior dev quit and I needed someone quick, and he came to the job picking up the project quickly and then executing the rest of the tasks needed and finished the project according to the deadline we had as a team. Great communicator and easy to work with too keeping it fun and professional!
+      </Testimonial>
     </section>
   </Layout>)
 }

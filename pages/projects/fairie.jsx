@@ -11,6 +11,7 @@ import fairiePhone from '../../public/images/fairieMobile_phone.png'
 import fairieMailbox from '../../public/images/fairieDesktop_mailbox.png'
 import fairieEmail  from '../../public/images/fairieDesktop_compose-mail.png'
 import fairieSearch from '../../public/images/fairieDesktop_search-result.png'
+import studioMightyPicture from '../../public/images/StudioMighty_3D_logo-small.jpg'
 import CarouselContainer from '../../components/Carousel/CarouselContainer'
 import { CarouselControlNext, CarouselControlPrev } from '../../components/Carousel/CarouselControls'
 import CarouselContextProvider from '../../components/Carousel/CarouselContext'
@@ -18,6 +19,7 @@ import CarouselPickerControls from '../../components/Carousel/CarouselPickerCont
 import AnimateOnScroll from '../../components/AnimateOnScroll'
 import CarouselRotationControl from '../../components/Carousel/CarouselRotationControl'
 import CarouselOuterContainer from '../../components/Carousel/CarouselOuterContainer'
+import { Testimonial } from '../../components/Testimonial'
 
 export default function FAIRIEProject() {
   return (<Layout className="relative lg:flex lg:flex-wrap md:overflow-x-hidden md:overflow-y-visible">
@@ -209,7 +211,7 @@ export default function FAIRIEProject() {
         </CarouselContextProvider>
       </div>
     </section>
-    <section className="relative z-[5] my-8 p-4 lg:max-w-4xl lg:mx-auto md:mb-40">
+    <section className="relative z-[5] my-8 p-4 lg:max-w-4xl lg:mx-auto">
       <AnimateOnScroll
         threshold={[0.2]}
         idleClassName="motion-safe:md:[&>*]:idle-slide-in-left"
@@ -224,6 +226,27 @@ export default function FAIRIEProject() {
           The project was made possible through the vigilant overseeing of <a href="https://www.swordmonkey.com">Swordmonkey Studios</a>. As well as the <a href="https://github.com/mnbroatch/yarn-bound">Yarn Bound</a> library, maintained by <a href="https://github.com/mnbroatch">Matthew Broatch</a>.
         </p>
       </AnimateOnScroll>
+    </section>
+    <section className="relative z-[5] my-8 p-4 w-full lg:mb-40 lg:flex lg:items-stretch lg:justify-center">
+      <h2 className="hidden">Testimonials</h2>
+       <Testimonial
+        className="xl:basis-[50%] xl:shrink-1 xl:grow-0"
+        customer={{
+          name: "Rustin L. Odom",
+          picture: studioMightyPicture
+          }}
+        link={{
+          href: "https://studiomighty.productions/",
+          label: "studiomighty.productions"
+        }}
+        preline="I am proud to write this recommendation for Sylvain. Having collaborated with many developers across various projects, he is absolutely one of my go-to choices."
+      >
+        <span className="block mb-2">I can always count on Sylvain to not only meet project requirements but to consistently add value through exceptional ideas and above-and-beyond effort.</span>
+        
+        <span className="block mb-2">As an example, while managing a large-scale web app and game, I needed to bring on additional developers. Sylvain was at the top of my list, and I couldn't have been more pleased with his work. He not only exceeded expectations but also stepped outside his scope of work to help problem-solve critical deployment issues.</span>
+
+        He's your guy.
+      </Testimonial>
     </section>
   </Layout>)
 }
