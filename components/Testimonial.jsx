@@ -4,7 +4,7 @@ export function Testimonial ({ customer, children, preline, subline, link, class
 
   return (
     <article 
-        className={className + " before:content-[' '] before:block before:mx-auto before:w-24 before:mb-8 before:border-t-2 before:border-grey-400 after:content-[' '] after:block after:mx-auto after:w-24 after:mt-8 after:border-b-2 after:border-grey-400"}
+        className={className + " flex flex-col justify-between before:content-[' '] before:block before:mx-auto before:w-24 before:mb-8 before:border-t-2 before:border-grey-400 after:content-[' '] after:block after:mx-auto after:w-24 after:mt-8 after:border-b-2 after:border-grey-400"}
         {...props}
     >  
         {preline ? <p className="text-lg font-bold text-center text-white-strong">"{preline}"</p> : null}
@@ -16,7 +16,7 @@ export function Testimonial ({ customer, children, preline, subline, link, class
             {customer.picture ?
                 <div className="w-12 h-12 rounded-full border border-grey-400 mx-2">
                     <Image
-                        className="block w-full"
+                        className="block w-full rounded-full"
                         src={customer.picture}
                         objectFit="cover"
                     />
