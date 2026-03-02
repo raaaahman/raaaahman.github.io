@@ -235,10 +235,12 @@ export default function FAIRIEProject() {
           name: "Rustin L. Odom",
           picture: studioMightyPicture
           }}
-        link={{
-          href: "https://studiomighty.productions/",
-          label: "studiomighty.productions"
-        }}
+        links={[
+          {
+            href: "https://studiomighty.productions/",
+            label: "studiomighty.productions"
+          }
+        ]}
         preline="I am proud to write this recommendation for Sylvain. Having collaborated with many developers across various projects, he is absolutely one of my go-to choices."
       >
         <span className="block mb-2">I can always count on Sylvain to not only meet project requirements but to consistently add value through exceptional ideas and above-and-beyond effort.</span>

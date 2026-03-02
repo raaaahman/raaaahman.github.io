@@ -155,10 +155,16 @@ export default function TheMindplexProject() {
           name: "DHeusta",
           picture: dbmSpectrumPicture
         }}
-        link={{
-          href: "https://www.beatsource.com/label/dbmspectrum/149730",
-          label: "beatsource.com/label/DBMSpectrum"
-        }}
+        links={[
+          {
+            href: "https://www.beatsource.com/label/dbmspectrum/149730",
+            label: "beatsource.com"
+          },
+          {
+            href: "https://open.spotify.com/intl-fr/artist/1dYLcY8kRTQ2l2Gsvq96MY",
+            label: "spotify.com"
+          }
+        ]}
         preline="Working with Sylvain was an absolute pleasure as he committed to what he said he would do and even went above and beyond in certain areas to make sure the vision happened!"
       >
         I came to him when a prior dev quit and I needed someone quick, and he came to the job picking up the project quickly and then executing the rest of the tasks needed and finished the project according to the deadline we had as a team. Great communicator and easy to work with too keeping it fun and professional!

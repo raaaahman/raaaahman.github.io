@@ -198,10 +198,16 @@ export default function HomePage() {
               name: "DHeusta",
               picture: dbmSpectrumPicture
             }}
-            link={{
-              href: "https://www.beatsource.com/label/dbmspectrum/149730",
-              label: "beatsource.com/label/DBMSpectrum"
-            }}
+            links={[
+              {
+                href: "https://www.beatsource.com/label/dbmspectrum/149730",
+                label: "beatsource.com"
+              },
+              {
+                href: "https://open.spotify.com/intl-fr/artist/1dYLcY8kRTQ2l2Gsvq96MY",
+                label: "spotify.com" 
+              }
+            ]}
             preline="Working with Sylvain was an absolute pleasure as he committed to what he said he would do and even went above and beyond in certain areas to make sure the vision happened!"
           >
             I came to him when a prior dev quit and I needed someone quick, and he came to the job picking up the project quickly and then executing the rest of the tasks needed and finished the project according to the deadline we had as a team. Great communicator and easy to work with too keeping it fun and professional!
@@ -212,10 +218,12 @@ export default function HomePage() {
               name: "Rustin L. Odom",
               picture: studioMightyPicture
              }}
-            link={{
-              href: "https://studiomighty.productions/",
-              label: "studiomighty.productions"
-            }}
+            links={[
+              {
+                href: "https://studiomighty.productions/",
+                label: "studiomighty.productions"
+              }
+            ]}
             preline="I am proud to write this recommendation for Sylvain. Having collaborated with many developers across various projects, he is absolutely one of my go-to choices."
           >
             <span className="block mb-2">I can always count on Sylvain to not only meet project requirements but to consistently add value through exceptional ideas and above-and-beyond effort.</span>
