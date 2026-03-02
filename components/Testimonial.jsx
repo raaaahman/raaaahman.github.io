@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function Testimonial ({ customer, children, preline, subline, link, className, ...props  }) {
+export function Testimonial ({ customer, children, preline, subline, links, className, ...props  }) {
 
   return (
     <article 
@@ -24,7 +24,11 @@ export function Testimonial ({ customer, children, preline, subline, link, class
             : null}
             {customer.name ? <figcaption className='text-md text-white-strong'>
                 {customer.name}
-                {link && link.href && link.label ? <a href={link.href} className="relative z-[50] ms-2 text-blue-light italic">{link.label}</a>: null} 
+                {links instanceof Array 
+                    ? links.map(link => link.href && link.label 
+                        ? <a href={link.href} className="relative z-[50] mx-2 text-blue-light italic">{link.label}</a>
+                        : null) 
+                    : null } 
             </figcaption> : null}
         </figure> : null}
     </article>
