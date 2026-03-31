@@ -3,6 +3,7 @@ import { HomeIcon, FolderIcon } from '@heroicons/react/24/solid'
 import NavBar from './NavBar'
 import LinkedInIcon from './icons/LinkedInIcon'
 import GitHubIcon from './icons/GitHubIcon'
+import Contact from './Contact';
 
 export default function Layout({ children, home, className, ...props }) {
   return (
@@ -63,11 +64,11 @@ export default function Layout({ children, home, className, ...props }) {
           {children}
         </main>
       </div>
-      <footer className="relative z-10 basis-full py-12 px-2">
+      <footer className="basis-full py-12 px-2">
+        <Contact className="text-center"/>
         <p className="text-center my-4">
           Created by <strong>Sylvain Schellenberger</strong>
-        </p>
-        <p className="text-center my-4">
+          {" "}
           Design inspired by <a href="https://once-ui.com/">Once UI</a> and{" "}
           <a href="https://tailwind-elements.com/">Tailwind Elements</a>
         </p>
